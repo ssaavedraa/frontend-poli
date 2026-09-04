@@ -1,0 +1,36 @@
+.header {
+  background-color: var(--color-surface);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.header__navigation-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  list-style: none;
+  gap: 2rem;
+}
+
+.header__link {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  color: var(--color-tertiary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.header__link:hover {
+  color: var(--color-primary);
+}
+
+.header__brand {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  color: var(--color-tertiary-dark);
+  text-decoration: none;
+}
