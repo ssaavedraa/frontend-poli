@@ -1,0 +1,40 @@
+.footer {
+  background-color: var(--color-surface);
+  color: var(--color-tertiary);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  text-align: center;
+  gap: 0.5rem;
+  font-family: var(--font-family-body);
+}
+
+.footer__title {
+  font-size: var(--font-size-xl);
+  margin-bottom: 0.5rem;
+  font-family: var(--font-family-heading);
+}
+
+.footer__navigation {
+  margin: auto
+}
+
+.footer__navigation-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.footer__link {
+  text-decoration: none;
+  color: var(--color-tertiary);
+}
+
+.footer__copyright {
+  font-size: var(--font-size-sm);
+  margin-top: 1rem;
+}
+
