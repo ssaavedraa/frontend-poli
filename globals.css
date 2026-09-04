@@ -1,3 +1,4 @@
+/* Fuentes autohospedadas: un solo archivo variable por familia, cubre pesos 400-700 */
 @font-face {
   font-family: 'Newsreader';
   font-style: normal;
@@ -31,6 +32,9 @@
   --color-neutral: #64748B;
   --color-neutral-light: color-mix(in srgb, var(--color-neutral) 70%, white);
   --color-neutral-dark: color-mix(in srgb, var(--color-neutral) 80%, black);
+
+  --color-background: #F8F9FF;
+  --color-surface: #FFFFFF;
 
   /* Tipografía */
   --font-family-heading: 'Newsreader', serif;
