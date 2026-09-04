@@ -1,0 +1,27 @@
+:root {
+  /* Colores: paleta base tomada del style guide de los mockups */
+  --color-primary: #DC2626;
+  --color-primary-light: color-mix(in srgb, var(--color-primary) 70%, white);
+  --color-primary-dark: color-mix(in srgb, var(--color-primary) 80%, black);
+
+  --color-secondary: #0F172A;
+  --color-secondary-light: color-mix(in srgb, var(--color-secondary) 70%, white);
+  --color-secondary-dark: color-mix(in srgb, var(--color-secondary) 80%, black);
+
+  --color-tertiary: #334155;
+  --color-tertiary-light: color-mix(in srgb, var(--color-tertiary) 70%, white);
+  --color-tertiary-dark: color-mix(in srgb, var(--color-tertiary) 80%, black);
+
+  --color-neutral: #64748B;
+  --color-neutral-light: color-mix(in srgb, var(--color-neutral) 70%, white);
+  --color-neutral-dark: color-mix(in srgb, var(--color-neutral) 80%, black);
+
+  /* Tipografía */
+  --font-family-heading: 'Newsreader', serif;
+  --font-family-body: 'Inter', sans-serif;
+
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.5rem;
+  --font-size-xl: 2.5rem;
+}
