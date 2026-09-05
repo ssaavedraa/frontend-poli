@@ -27,6 +27,12 @@ async function loadComponent(src) {
     throw new Error(`Failed to fetch component from "${src}". Status: ${component.status}`)
   }
 
+  const contentType = component.headers.get('Content-Type')
+
+  if (!contentType || !contentType.includes('text/html')) {
+    throw new Error(`Invalid content type for component from "${src}". Expected "text/html", got "${contentType}".`)
+  }
+
   const componentContent = await component.text()
 
   return componentContent
