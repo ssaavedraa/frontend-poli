@@ -29,7 +29,7 @@ if (!favoritesData || favoritesData.length === 0) {
   const emptyStateContent = `
     <div class="empty-list__container">
       <p class="empty-list__title"> There are no posts </p>
-      <a class="button button--accent" href="src/ui/pages/list.html"> Explore posts </a>
+      <a class="button button--accent" href="list.html"> Explore posts </a>
     </div>
   `
 
