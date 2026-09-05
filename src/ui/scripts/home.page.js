@@ -2,14 +2,6 @@ import { filterNotDeleted, sortByDate, truncateAt } from '../../domain/posts.js'
 import { HttpClient } from '../../services/http-client.service.js'
 import { renderCard } from './card.component.js'
 import { renderHero } from './hero.component.js'
-import { renderLayoutComponent } from './layout.js'
-
-const components = [
-  renderLayoutComponent('../components/header.html', 'header-slot'),
-  renderLayoutComponent('../components/footer.html', 'footer-slot'),
-]
-
-await Promise.all(components)
 
 const gridSlot = document.getElementById('news-hub-grid-slot')
 const heroSlot = document.getElementById('news-hub-hero-slot')

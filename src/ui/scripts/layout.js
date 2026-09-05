@@ -21,3 +21,10 @@ export async function renderLayoutComponent(src, slotId) {
 
   slot.innerHTML = componentContent
 }
+
+const components = [
+  renderLayoutComponent('../components/header.html', 'header-slot'),
+  renderLayoutComponent('../components/footer.html', 'footer-slot'),
+]
+
+await Promise.all(components)
