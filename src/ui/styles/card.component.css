@@ -1,5 +1,5 @@
 .card {
-  border-radius: 16px;
+  border-radius: 1rem;
   padding: 1.5rem;
   background-color: var(--color-surface);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
