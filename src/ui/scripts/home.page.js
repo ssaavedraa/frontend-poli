@@ -1,3 +1,4 @@
+import { filterNotDeleted, sortByDate } from '../../domain/posts.js'
 import { HttpClient } from '../../services/http-client.service.js'
 import { renderCard } from './card.component.js'
 import { renderLayoutComponent } from './layout.js'
@@ -17,8 +18,10 @@ if (!gridSlot) {
 
 const postsUrl = new URL('../../assets/data/posts.json', import.meta.url).href
 const postsData = await HttpClient.get(postsUrl, 'application/json')
+const activePosts = filterNotDeleted(postsData)
+const sortedPosts = sortByDate(activePosts)
 
-postsData.forEach((post) => {
+sortedPosts.forEach((post) => {
   const postElement = renderCard({
     title: post.title,
     summary: post.summary,
