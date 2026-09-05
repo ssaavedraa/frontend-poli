@@ -3,6 +3,13 @@ import { HttpClient } from '../../services/http-client.service.js'
 
 const postSlug = new URLSearchParams(window.location.search).get('slug')
 
+if (!postSlug) {
+  throw new Error('Post slug not found')
+}
+
+const pageTitle = postSlug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+document.title = `NewsHub | ${pageTitle}`
+
 const posts = await HttpClient.get(new URL('../../assets/data/posts.json', import.meta.url).href, 'application/json')
 
 const post = findPostBySlug(posts, postSlug)
