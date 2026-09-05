@@ -23,7 +23,7 @@ export function renderCard(cardData) {
       <img src="${cardData.image.src}" alt="${cardData.image.alt}" class="card__image" />
       <h2 class="card__title">${cardData.title}</h2>
       <p class="card__summary">${cardData.summary}</p>
-      <a href="/src/ui/pages/detail?slug=${cardData.slug}" class="card__link">Read More</a>
+      <a href="/src/ui/pages/detail.html?slug=${cardData.slug}" class="card__link">Read More</a>
     </article>
   `;
 }
