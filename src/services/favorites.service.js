@@ -1,4 +1,4 @@
-import { LocalStorageService } from './local-storage.service'
+import { LocalStorageService } from './local-storage.service.js'
 
 const STORAGE_KEY = 'favorites'
 
