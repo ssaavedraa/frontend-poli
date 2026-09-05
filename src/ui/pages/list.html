@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../../../globals.css">
+  <link rel="stylesheet" href="../styles/header.component.css">
+  <link rel="stylesheet" href="../styles/footer.component.css">
+  <link rel="stylesheet" href="../styles/button.component.css">
+  <link rel="stylesheet" href="../styles/card.component.css">
+  <link rel="stylesheet" href="../styles/list.page.css">
+  <script type="module" src="../scripts/layout.js" defer></script>
+  <script type="module" src="../scripts/list.page.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NewsHub | All News</title>
+</head>
+<body>
+  <header id="header-slot" class="header"></header>
+  <main id="news-hub-main" class="list__container">
+    <h1 class="list__title">
+      Todas las noticias
+    </h1>
+    <p class="list__subtitle">
+      Archivo centralizado de coberturas exclusivas, reportajes a profundidad y crónicas de actualidad.
+    </p>
+    <section id="news-hub-section" class="card__container"></section>
+    <section id="empty-state"></section>
+  </main>
+  <footer id="footer-slot" class="footer"></footer>
+</body>
+</html>
