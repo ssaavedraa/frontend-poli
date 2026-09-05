@@ -1,4 +1,4 @@
-import { filterNotDeleted, sortByDate } from '../../domain/posts.js'
+import { filterNotDeleted, sortByDate, truncateAt } from '../../domain/posts.js'
 import { HttpClient } from '../../services/http-client.service.js'
 import { renderCard } from './card.component.js'
 import { renderLayoutComponent } from './layout.js'
@@ -20,8 +20,9 @@ const postsUrl = new URL('../../assets/data/posts.json', import.meta.url).href
 const postsData = await HttpClient.get(postsUrl, 'application/json')
 const activePosts = filterNotDeleted(postsData)
 const sortedPosts = sortByDate(activePosts)
+const [heroPost, ...featuredPosts] = truncateAt(sortedPosts, 7)
 
-sortedPosts.forEach((post) => {
+featuredPosts.forEach((post) => {
   const postElement = renderCard({
     title: post.title,
     summary: post.summary,
