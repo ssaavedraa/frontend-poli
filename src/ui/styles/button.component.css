@@ -1,0 +1,32 @@
+.button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.button--primary {
+  background-color: var(--color-surface);
+  font-size: var(--font-size-base);
+  color: var(--color-neutral-light);
+}
+
+.button--primary:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background-color: var(--colort-neutral-light);
+  color: var(--color-neutral-dark);
+}
+
+.button--danger {
+  background-color: transparent;
+  color: var(--color-neutral-light);
+  box-shadow: none;
+}
+
+.button--danger:hover {
+  background-color: transparent;
+  color: var(--color-primary-light);
+  box-shadow: none;
+}
