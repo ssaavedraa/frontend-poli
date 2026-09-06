@@ -7,6 +7,10 @@ function getFavorites() {
 }
 
 function addFavorite(id) {
+  if (!id) {
+    throw new Error('post id is required')
+  }
+
   const storedFavorites = getFavorites()
 
   if (storedFavorites.includes(id)) {
