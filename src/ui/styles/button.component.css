@@ -38,3 +38,13 @@
   font-size: var(--font-size-lg);
   text-decoration: none;
 }
+
+.button--active {
+  background-color: var(--color-primary-light);
+  color: var(--color-surface);
+}
+
+.button--active:hover {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+}
