@@ -13,6 +13,15 @@ async function getAll() {
   return storedPosts
 }
 
+async function softDelete(id) {
+  const storedPosts = await getAll()
+
+  const updatedPosts = storedPosts
+    .map(post => post.id === id ? { ...post, deletedAt: new Date() } : post )
+
+  LocalStorageService.set(LOCAL_STORAGE_POSTS_KEY, updatedPosts)
+}
+
 async function preloadPosts() {
   const preloadedPosts = await HttpClient.get(new URL('../assets/data/posts.json', import.meta.url), 'application/json')
 
@@ -22,5 +31,6 @@ async function preloadPosts() {
 }
 
 export const PostsService = {
-  getAll
+  getAll,
+  softDelete
 }
