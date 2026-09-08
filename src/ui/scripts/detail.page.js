@@ -1,7 +1,7 @@
 import { findPostBySlug } from '../../domain/detail.js'
 import { isFavorited } from '../../domain/favorites.js'
 import { FavoritesService } from '../../services/favorites.service.js'
-import { HttpClient } from '../../services/http-client.service.js'
+import { PostsService } from '../../services/posts.service.js'
 
 const postSlug = new URLSearchParams(window.location.search).get('slug')
 
@@ -12,7 +12,7 @@ if (!postSlug) {
 const pageTitle = postSlug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
 document.title = `NewsHub | ${pageTitle}`
 
-const posts = await HttpClient.get(new URL('../../assets/data/posts.json', import.meta.url).href, 'application/json')
+const posts = await PostsService.getAll()
 const post = findPostBySlug(posts, postSlug)
 if (!post) {
   throw new Error(`Post with slug "${postSlug}" not found`)

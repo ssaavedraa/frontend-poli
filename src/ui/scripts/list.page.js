@@ -1,5 +1,5 @@
 import { filterNotDeleted, sortByDate } from '../../domain/posts.js'
-import { HttpClient } from '../../services/http-client.service.js'
+import { PostsService } from '../../services/posts.service.js'
 import { renderCard } from './card.component.js'
 
 const gridSlot = document.getElementById('news-hub-section')
@@ -14,8 +14,7 @@ if (!emptyStateElement) {
   throw new Error('No empty state section found')
 }
 
-const postsUrl = new URL('../../assets/data/posts.json', import.meta.url).href
-const postsData = await HttpClient.get(postsUrl, 'application/json')
+const postsData = await PostsService.getAll()
 const activePosts = filterNotDeleted(postsData)
 
 if (!activePosts || activePosts.length === 0) {

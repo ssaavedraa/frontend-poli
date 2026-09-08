@@ -1,5 +1,5 @@
 import { filterNotDeleted, sortByDate, truncateAt } from '../../domain/posts.js'
-import { HttpClient } from '../../services/http-client.service.js'
+import { PostsService } from '../../services/posts.service.js'
 import { renderCard } from './card.component.js'
 import { renderHero } from './hero.component.js'
 
@@ -14,8 +14,7 @@ if (!heroSlot) {
   throw new Error('Hero slot with ID "news-hub-hero-slot" not found.')
 }
 
-const postsUrl = new URL('../../assets/data/posts.json', import.meta.url).href
-const postsData = await HttpClient.get(postsUrl, 'application/json')
+const postsData = await PostsService.getAll()
 const activePosts = filterNotDeleted(postsData)
 const sortedPosts = sortByDate(activePosts)
 const [heroPost, ...featuredPosts] = truncateAt(sortedPosts, 7)
