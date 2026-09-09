@@ -90,7 +90,7 @@ renderDialog({
   elementId: CONFIRMATION_DIALOG_ID,
   showConfirmationButton: true,
   showCancelButton: true,
-  dialogMessage: 'Estas seguro de eliminar esta noticia? Esta accion no se puede deshacer'
+  dialogMessage: 'Estas seguro de eliminar esta noticia? <br> Esta accion no se puede deshacer'
 })
 const dialogContainer = document.getElementById(CONFIRMATION_DIALOG_ID)
 
