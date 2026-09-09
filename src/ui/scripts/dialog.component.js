@@ -1,11 +1,15 @@
 /**
- * @typedef {Object} dialogProps
+ * @typedef {Object} DialogProps
  * @property {string} elementId
  * @property {boolean} showConfirmationButton
  * @property {boolean} showCancelButton
  * @property {string} dialogMessage
  */
 
+
+/**
+ * @param {DialogProps} dialogProps
+ */
 export function renderDialog(dialogProps) {
   const {
     elementId,
@@ -14,7 +18,7 @@ export function renderDialog(dialogProps) {
     dialogMessage
   } = dialogProps
 
-  const dialog = `
+  const dialogContent = `
     <p class="dialog__mesage"> ${dialogMessage} </p>
     <div class="dialog__button-group">
       ${showConfirmationButton ? '<button class="button button--accent" id="dialog-confirmation-button"> Aceptar </button>' : ''}
@@ -28,5 +32,5 @@ export function renderDialog(dialogProps) {
     throw new Error('cannot find dialog container element')
   }
 
-  dialogElement.innerHTML('beforeend', dialog)
+  dialogElement.innerHTML = dialogContent
 }
