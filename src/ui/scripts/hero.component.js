@@ -27,5 +27,5 @@ export function renderHero(heroData) {
       </div>
       <img src="${heroData.image.src}" alt="${heroData.image.alt}" class="hero__image" />
     </article>
-  `;
+  `
 }

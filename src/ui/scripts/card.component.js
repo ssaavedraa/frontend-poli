@@ -25,5 +25,5 @@ export function renderCard(cardData) {
       <p class="card__summary">${cardData.summary}</p>
       <a href="/src/ui/pages/detail.html?slug=${cardData.slug}" class="card__link">Read More</a>
     </article>
-  `;
+  `
 }
