@@ -91,7 +91,7 @@ button {
   --color-tertiary-dark: color-mix(in srgb, var(--color-tertiary) 80%, black);
 
   --color-neutral: #64748B;
-  --color-neutral-light: color-mix(in srgb, var(--color-neutral) 70%, white);
+  --color-neutral-light: color-mix(in srgb, var(--color-neutral) 9%, white);
   --color-neutral-dark: color-mix(in srgb, var(--color-neutral) 80%, black);
 
   --color-background: #F8F9FF;
