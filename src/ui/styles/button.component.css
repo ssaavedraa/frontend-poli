@@ -35,7 +35,7 @@
   background-color: var(--color-primary);
   color: var(--color-surface);
   border-radius: 0.5rem;
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-base);
   text-decoration: none;
 }
 
