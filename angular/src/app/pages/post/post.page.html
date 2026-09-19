@@ -2,7 +2,7 @@
   <img id="news-image" class="detail__image" [src]="post?.image?.src" [alt]="post?.image?.alt">
   <section class="detail-buttons__container">
     <button id="favorites-button" class="button button--primary" (click)="toggleFavorite()">{{ isFavorite() ? 'Eliminar de favoritos' : 'Agregar a favoritos' }}</button>
-    <button id="delete-button" class="button button--danger" (click)="deletePost()">Eliminar noticia</button>
+    <button id="delete-button" class="button button--danger" (click)="openConfirmationDialog()">Eliminar noticia</button>
   </section>
   <h1 id="news-title" class="detail__title">{{ post?.title }}</h1>
   <h2 id="news-subtitle" class="detail__subtitle">{{ post?.subtitle }}</h2>
@@ -13,3 +13,10 @@
     }
   </section>
 </main>
+<app-dialog
+  #confirmationDialog
+  title="Eliminar noticia"
+  message="¿Estás seguro de querer eliminar esta noticia?"
+  (confirm)="deletePost()"
+  (cancel)="closeConfirmationDialog()">
+</app-dialog>

@@ -1,6 +1,7 @@
-import { Component, DestroyRef, OnInit, signal, WritableSignal } from '@angular/core';
+import { Component, DestroyRef, OnInit, signal, ViewChild, WritableSignal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DialogComponent } from '../../components/dialog/dialog.component';
 import { findPostBySlug } from '../../domain';
 import { Post } from '../../models';
 import { FavoritesService, PostsService } from '../../services';
@@ -8,10 +9,12 @@ import { FavoritesService, PostsService } from '../../services';
 @Component({
   selector: 'app-post-page',
   standalone: true,
+  imports: [DialogComponent],
   templateUrl: './post.page.html',
   styleUrls: ['./post.page.css'],
 })
 export class PostPage implements OnInit {
+  @ViewChild('confirmationDialog') confirmationDialogRef!: DialogComponent
   post: Post | null = null
   isFavorite: WritableSignal<boolean> = signal(false)
 
@@ -58,5 +61,23 @@ export class PostPage implements OnInit {
   deletePost(): void {
     this.postsService.softDelete(this.post!.id)
     this.router.navigate(['/'])
+  }
+
+  openConfirmationDialog(): void {
+    if (!this.confirmationDialogRef) {
+      console.warn('Dialog reference not found')
+      return
+    }
+
+    this.confirmationDialogRef.openDialog()
+  }
+
+  closeConfirmationDialog(): void {
+    if (!this.confirmationDialogRef) {
+      console.warn('Dialog reference not found')
+      return
+    }
+
+    this.confirmationDialogRef.closeDialog()
   }
 }
