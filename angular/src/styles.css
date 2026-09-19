@@ -65,7 +65,7 @@ button {
   font-style: normal;
   font-weight: 400 700;
   font-display: swap;
-  src: url('src/assets/fonts/newsreader.woff2') format('woff2');
+  src: url('/fonts/newsreader.woff2') format('woff2');
 }
 
 @font-face {
@@ -73,7 +73,7 @@ button {
   font-style: normal;
   font-weight: 400 700;
   font-display: swap;
-  src: url('src/assets/fonts/inter.woff2') format('woff2');
+  src: url('/fonts/inter.woff2') format('woff2');
 }
 
 :root {
