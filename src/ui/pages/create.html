@@ -10,7 +10,7 @@
   <script type="module" src="../scripts/layout.js" defer></script>
   <script type="module" src="../scripts/create.page.js" defer></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NewsHub | Create Post</title>
+  <title>NewsHub | Crear noticia</title>
 </head>
 <body>
   <header id="header-slot" class="header"></header>
@@ -51,7 +51,7 @@
           <input type="url" id="imageSrc" name="imageSrc" class="create__input" placeholder="https://ejemplo.com/fotografia.jpg" required>
         </div>
         <div class="create__field">
-          <label for="imageAlt" class="create__label">Texto alternativo (alt text)</label>
+          <label for="imageAlt" class="create__label">Texto alternativo</label>
           <input type="text" id="imageAlt" name="imageAlt" class="create__input" placeholder="Descripción concisa para accesibilidad visual..." required>
         </div>
       </div>
@@ -60,7 +60,7 @@
         <div class="create__body-header">
           <div>
             <h2 id="body-label" class="create__label">Cuerpo del artículo</h2>
-            <p class="create__body-copy">Estructura tu noticia párrafo a párrafo para facilitar su diagramación y lectura.</p>
+            <p class="create__body-copy">Estructura tu noticia párrafo a párrafo para facilitar su lectura.</p>
           </div>
           <p class="create__hint" id="paragraphs-count">2 párrafos redactados</p>
         </div>
@@ -69,7 +69,7 @@
           <article class="create__paragraph" id='create-paragraph-1'>
             <div class="create__paragraph-header">
               <label for="paragraph-1" class="create__paragraph-label">Párrafo 1</label>
-              <span class="create__hint">Apertura / Lead</span>
+              <span class="create__hint">Apertura</span>
             </div>
             <textarea
               id="paragraph-1"
@@ -94,7 +94,7 @@
           </article>
         </div>
 
-        <button type="button" class="button create__add-paragraph" id="add-paragraph">Añadir párrafo</button>
+        <button type="button" class="button create__add-paragraph" id="add-paragraph">Agregar párrafo</button>
       </section>
       <div class="create__actions">
         <div class="create__actions-end">

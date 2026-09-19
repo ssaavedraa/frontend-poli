@@ -10,27 +10,27 @@
   <script type="module" src="../scripts/layout.js" defer></script>
   <script type="module" src="../scripts/contact.page.js" defer></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NewsHub | Contact</title>
+  <title>NewsHub | Contacto</title>
 </head>
 <body>
   <header id="header-slot" class="header"></header>
   <main id="news-hub-main" class="contact__container">
     <h1 class="contact__title">Contáctanos</h1>
-    <p class="contact__description">Escríbenos directamente. Nuestro equipo editorial y de redacción responderá a tu solicitud a la brevedad.</p>
+    <p class="contact__description">Escríbenos directamente. Nuestro equipo editorial y de redacción responderá a tu solicitud lo antes posible.</p>
     <form class="contact__form" id="contact-form">
       <div class="contact__field">
         <label for="name" class="contact__label">Nombre completo</label>
-        <span class="contact__hint">requerido</span>
+        <span class="contact__hint">Obligatorio</span>
         <input type="text" id="name" name="name" class="contact__input" placeholder="Ej. Carmen Salinas" required>
       </div>
       <div class="contact__field">
         <label for="email" class="contact__label">Correo electrónico</label>
-        <span class="contact__hint">requerido</span>
+        <span class="contact__hint">Obligatorio</span>
         <input type="email" id="email" name="email" class="contact__input" placeholder="nombre@ejemplo.com" required>
       </div>
       <div class="contact__field">
         <label for="message" class="contact__label">Mensaje</label>
-        <span class="contact__hint">requerido</span>
+        <span class="contact__hint">Obligatorio</span>
         <textarea resize="none" id="message" name="message" class="contact__input contact__input--textarea" required minlength="10" maxlength="500" placeholder="Escribe tu mensaje aquí..." title="El mensaje debe tener entre 10 y 500 caracteres"></textarea>
       </div>
       <button type="submit" class="button button--accent contact__submit">Enviar mensaje →</button>

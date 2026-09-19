@@ -10,9 +10,6 @@ if (!postSlug) {
   throw new Error('Post slug not found')
 }
 
-const pageTitle = postSlug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
-document.title = `NewsHub | ${pageTitle}`
-
 const posts = await PostsService.getAll()
 const post = findPostBySlug(posts, postSlug)
 if (!post) {
@@ -20,6 +17,8 @@ if (!post) {
 
   throw new Error(`Post with slug "${postSlug}" not found`)
 }
+
+document.title = `NewsHub | ${post.title}`
 
 const favorites = FavoritesService.getFavorites()
 
@@ -53,12 +52,12 @@ if (!favoritesButton) {
 }
 
 function addFavoriteStyles() {
-  favoritesButton.innerText = 'Remove from favorites'
+  favoritesButton.innerText = 'Quitar de favoritos'
   favoritesButton.classList.add('button--active')
 }
 
 function removeFavoriteStyles() {
-  favoritesButton.innerText = 'Add to favorites'
+  favoritesButton.innerText = 'Agregar a favoritos'
   favoritesButton.classList.remove('button--active')
 }
 
@@ -90,7 +89,7 @@ renderDialog({
   elementId: CONFIRMATION_DIALOG_ID,
   showConfirmationButton: true,
   showCancelButton: true,
-  dialogMessage: 'Estas seguro de eliminar esta noticia? <br> Esta accion no se puede deshacer'
+  dialogMessage: '¿Estás seguro de eliminar esta noticia?<br>Esta acción no se puede deshacer'
 })
 const dialogContainer = document.getElementById(CONFIRMATION_DIALOG_ID)
 
@@ -112,7 +111,7 @@ function cancelDialogAction() {
 const deletePostButton = document.getElementById('delete-button')
 
 if (!deletePostButton) {
-  throw new Error('No se puede encontrar el boton para eliminar la noticia')
+  throw new Error('Delete button not found')
 }
 
 deletePostButton.addEventListener('click', deletePost)
@@ -120,7 +119,7 @@ deletePostButton.addEventListener('click', deletePost)
 const dialogConfirmButton = document.getElementById('dialog-confirmation-button')
 
 if (!dialogConfirmButton) {
-  throw new Error('No se puede encontrar el boton de confirmacion del dialogo')
+  throw new Error('Dialog confirmation button not found')
 }
 
 dialogConfirmButton.addEventListener('click', async () => confirmPostDeletion() )
@@ -128,7 +127,7 @@ dialogConfirmButton.addEventListener('click', async () => confirmPostDeletion() 
 const dialogCancelButton = document.getElementById('dialog-cancel-button')
 
 if (!dialogCancelButton) {
-  throw new Error('No se puede encontrar el boton de confirmacion del dialogo')
+  throw new Error('Dialog cancel button not found')
 }
 
 dialogCancelButton.addEventListener('click', cancelDialogAction)

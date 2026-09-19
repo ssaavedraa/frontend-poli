@@ -21,8 +21,8 @@ export function renderDialog(dialogProps) {
   const dialogContent = `
     <p class="dialog__message"> ${dialogMessage} </p>
     <div class="dialog__button-group">
-      ${showConfirmationButton ? '<button class="button button--primary" id="dialog-confirmation-button"> Aceptar </button>' : ''}
-      ${showCancelButton ? '<button class="button button--danger" id ="dialog-cancel-button"> Cancelar </button>' : ''}
+      ${showConfirmationButton ? '<button class="button button--primary" id="dialog-confirmation-button">Aceptar</button>' : ''}
+      ${showCancelButton ? '<button class="button button--danger" id ="dialog-cancel-button">Cancelar</button>' : ''}
     </div>
   `
 

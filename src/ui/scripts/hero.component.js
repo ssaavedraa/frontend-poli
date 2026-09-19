@@ -23,7 +23,7 @@ export function renderHero(heroData) {
       <div class="hero__overlay">
         <h2 class="hero__title">${heroData.title}</h2>
         <p class="hero__summary">${heroData.summary}</p>
-        <a href="/src/ui/pages/detail.html?slug=${heroData.slug}" class="hero__link">Read More</a>
+        <a href="/src/ui/pages/detail.html?slug=${heroData.slug}" class="hero__link">Leer más</a>
       </div>
       <img src="${heroData.image.src}" alt="${heroData.image.alt}" class="hero__image" />
     </article>

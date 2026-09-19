@@ -22,8 +22,8 @@ if (!activePosts || activePosts.length === 0) {
 
   const emptyStateContent = `
     <div class="empty-list__container">
-      <p class="empty-list__title"> There are no posts </p>
-      <a class="button button--accent" href="src/ui/pages/create.html"> Create one </a>
+      <p class="empty-list__title">No hay noticias</p>
+      <a class="button button--accent" href="src/ui/pages/create.html">Crear una</a>
     </div>
   `
 
