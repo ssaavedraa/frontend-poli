@@ -1,0 +1,15 @@
+<main id="news-hub-main" class="detail__container">
+  <img id="news-image" class="detail__image" [src]="post?.image?.src" [alt]="post?.image?.alt">
+  <section class="detail-buttons__container">
+    <button id="favorites-button" class="button button--primary">Agregar a favoritos</button>
+    <button id="delete-button" class="button button--danger">Eliminar noticia</button>
+  </section>
+  <h1 id="news-title" class="detail__title">{{ post?.title }}</h1>
+  <h2 id="news-subtitle" class="detail__subtitle">{{ post?.subtitle }}</h2>
+  <hr class="detail__separator">
+  <section id="news-content" class="detail__content">
+    @for (paragraph of post?.content; track paragraph) {
+      <p>{{ paragraph }}</p>
+    }
+  </section>
+</main>
