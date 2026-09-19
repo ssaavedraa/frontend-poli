@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../../../globals.css">
+  <link rel="stylesheet" href="../styles/header.component.css">
+  <link rel="stylesheet" href="../styles/footer.component.css">
+  <link rel="stylesheet" href="../styles/button.component.css">
+  <link rel="stylesheet" href="../styles/create.page.css">
+  <script type="module" src="../scripts/layout.js" defer></script>
+  <script type="module" src="../scripts/create.page.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NewsHub | Create Post</title>
+</head>
+<body>
+  <header id="header-slot" class="header"></header>
+  <main id="news-hub-main" class="create__container">
+    <h1 class="create__title">Crear nueva noticia</h1>
+    <p class="create__description">Completa los campos para redactar y publicar un nuevo artículo en NewsHub.</p>
+
+    <form class="create__form" id="create-form">
+      <div class="create__field">
+        <label for="title" class="create__label">Título</label>
+        <span class="create__hint">Obligatorio</span>
+        <input type="text" id="title" name="title" class="create__input" placeholder="Ej. Avances en computación cuántica redefinen el análisis de datos" required>
+      </div>
+
+      <div class="create__field">
+        <label for="subtitle" class="create__label">Subtítulo breve</label>
+        <input type="text" id="subtitle" name="subtitle" class="create__input" placeholder="Breve frase explicativa o contexto principal..." required>
+      </div>
+
+      <div class="create__field">
+        <label for="summary" class="create__label">Descripción corta / resumen</label>
+        <span class="create__hint" id="summary-count">0 / 220 caracteres</span>
+        <textarea
+          id="summary"
+          name="summary"
+          class="create__input create__input--textarea"
+          required
+          minlength="10"
+          maxlength="220"
+          rows="4"
+          placeholder="Resumen conciso para la vista de tarjeta..."
+          title="El resumen debe tener entre 10 y 220 caracteres"></textarea>
+      </div>
+
+      <div class="create__media">
+        <div class="create__field">
+          <label for="imageSrc" class="create__label">URL de la imagen</label>
+          <input type="url" id="imageSrc" name="imageSrc" class="create__input" placeholder="https://ejemplo.com/fotografia.jpg" required>
+        </div>
+        <div class="create__field">
+          <label for="imageAlt" class="create__label">Texto alternativo (alt text)</label>
+          <input type="text" id="imageAlt" name="imageAlt" class="create__input" placeholder="Descripción concisa para accesibilidad visual..." required>
+        </div>
+      </div>
+
+      <section class="create__body" aria-labelledby="body-label">
+        <div class="create__body-header">
+          <div>
+            <h2 id="body-label" class="create__label">Cuerpo del artículo</h2>
+            <p class="create__body-copy">Estructura tu noticia párrafo a párrafo para facilitar su diagramación y lectura.</p>
+          </div>
+          <p class="create__hint" id="paragraphs-count">2 párrafos redactados</p>
+        </div>
+
+        <div class="create__paragraphs" id="paragraphs-list">
+          <article class="create__paragraph" id='create-paragraph-1'>
+            <div class="create__paragraph-header">
+              <label for="paragraph-1" class="create__paragraph-label">Párrafo 1</label>
+              <span class="create__hint">Apertura / Lead</span>
+            </div>
+            <textarea
+              id="paragraph-1"
+              name="paragraphs"
+              class="create__paragraph-input"
+              rows="3"
+              required
+              placeholder="Escribe el primer párrafo introductorio de la noticia..."></textarea>
+          </article>
+
+          <article class="create__paragraph create__paragraph--hidden" id='create-paragraph-template'>
+            <div class="create__paragraph-header">
+              <label for="paragraph-2" class="create__paragraph-label">Párrafo 2</label>
+              <button type="button" class="create__paragraph-remove">Eliminar</button>
+            </div>
+            <textarea
+              id="paragraph-2"
+              name="paragraphs"
+              class="create__paragraph-input"
+              rows="3"
+              placeholder="Desarrolla el contexto, citas relevantes o datos complementarios..."></textarea>
+          </article>
+        </div>
+
+        <button type="button" class="button create__add-paragraph" id="add-paragraph">Añadir párrafo</button>
+      </section>
+      <div class="create__actions">
+        <div class="create__actions-end">
+          <button type="reset" class="create__discard">Descartar</button>
+          <button type="submit" class="button button--accent create__submit">Publicar noticia</button>
+        </div>
+      </div>
+    </form>
+  </main>
+  <footer id="footer-slot" class="footer"></footer>
+</body>
+</html>
