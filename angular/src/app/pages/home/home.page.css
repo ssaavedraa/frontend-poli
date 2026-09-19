@@ -41,6 +41,14 @@
   text-align: center;
 }
 
+.home__card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 2rem;
+  align-items: stretch;
+  width: 100%;
+}
+
 @media (max-width: 768px) {
   .home__container {
     gap: 1.5rem;
@@ -55,5 +63,10 @@
 
   .empty-list__title {
     font-size: var(--font-size-lg);
+  }
+
+  .home__card-container {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 }
