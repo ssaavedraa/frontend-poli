@@ -1,0 +1,10 @@
+<section>
+  <article class="hero">
+    <div class="hero__overlay">
+      <h2 class="hero__title">{{ heroData.title }}</h2>
+      <p class="hero__summary">{{ heroData.summary }}</p>
+      <a [routerLink]="['/post', heroData.slug]" class="hero__link">Leer más</a>
+    </div>
+    <img [src]="heroData.image.src" [alt]="heroData.image.alt" class="hero__image" />
+  </article>
+</section>
