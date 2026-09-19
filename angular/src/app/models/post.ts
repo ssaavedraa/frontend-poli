@@ -1,4 +1,6 @@
-interface Post {
+import { Image } from './image'
+
+export interface Post {
   id: string
   title: string
   slug: string

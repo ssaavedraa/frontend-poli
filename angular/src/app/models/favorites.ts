@@ -1,1 +1,1 @@
-type Favorites = string[]
+export type Favorites = string[]
