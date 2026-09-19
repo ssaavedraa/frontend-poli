@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Post } from '../../models';
+import { CardPost } from '../../models';
 
 @Component({
   selector: 'app-card',
@@ -10,5 +10,5 @@ import { Post } from '../../models';
   styleUrl: './card.component.css',
 })
 export class CardComponent {
-  @Input({ required: true}) post!: Pick<Post, 'image' | 'title' | 'summary' | 'slug'>;
+  @Input({ required: true}) post!: CardPost
 }
