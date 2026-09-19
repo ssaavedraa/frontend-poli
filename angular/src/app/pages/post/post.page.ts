@@ -54,4 +54,9 @@ export class PostPage implements OnInit {
 
     this.isFavorite.update((current) => !current)
   }
+
+  deletePost(): void {
+    this.postsService.softDelete(this.post!.id)
+    this.router.navigate(['/'])
+  }
 }
