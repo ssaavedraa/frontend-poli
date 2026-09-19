@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { CardComponent, HeroComponent } from '../../components';
-import { filterNotDeleted, sortByDate, truncateAt } from '../../domain';
-import { CardPost } from '../../models';
-import { PostsService } from '../../services';
+import { Component } from '@angular/core'
+import { RouterLink } from '@angular/router'
+import { CardComponent, HeroComponent } from '../../components'
+import { filterNotDeleted, sortByDate, truncateAt } from '../../domain'
+import { CardPost } from '../../models'
+import { PostsService } from '../../services'
 
 @Component({
   selector: 'app-home-page',

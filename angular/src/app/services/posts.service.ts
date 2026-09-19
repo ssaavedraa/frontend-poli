@@ -4,12 +4,12 @@ import { CreatePostData, Image, Post } from '../models'
 import { LocalStorageService } from './local-storage.service'
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class PostsService{
+export class PostsService {
   private readonly LOCAL_STORAGE_POSTS_KEY = 'posts'
 
-  constructor (private localStorageService: LocalStorageService) {}
+  constructor(private localStorageService: LocalStorageService) {}
 
   public getAll(): Post[] {
     let storedPosts = this.localStorageService.get<Post[]>(this.LOCAL_STORAGE_POSTS_KEY) ?? null
@@ -29,8 +29,9 @@ export class PostsService{
       return
     }
 
-    const updatedPosts = storedPosts
-      .map(post => post.id === id ? { ...post, deletedAt: new Date() } : post )
+    const updatedPosts = storedPosts.map((post) =>
+      post.id === id ? { ...post, deletedAt: new Date() } : post,
+    )
 
     this.localStorageService.set<Post[]>(this.LOCAL_STORAGE_POSTS_KEY, updatedPosts)
   }
@@ -39,7 +40,7 @@ export class PostsService{
     const preloadedPosts = posts.map<Post>((post) => ({
       ...post,
       createdAt: new Date(post.createdAt),
-      updatedAt: new Date(post.updatedAt)
+      updatedAt: new Date(post.updatedAt),
     }))
 
     this.localStorageService.set(this.LOCAL_STORAGE_POSTS_KEY, preloadedPosts)

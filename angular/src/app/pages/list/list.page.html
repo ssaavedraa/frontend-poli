@@ -1,13 +1,12 @@
 <main id="news-hub-main" class="list__container">
-  <h1 class="list__title">
-    Todas las noticias
-  </h1>
+  <h1 class="list__title">Todas las noticias</h1>
   <p class="list__subtitle">
-    Archivo centralizado de coberturas exclusivas, reportajes a profundidad y crónicas de actualidad.
+    Archivo centralizado de coberturas exclusivas, reportajes a profundidad y crónicas de
+    actualidad.
   </p>
   <section class="list__card-container">
     @for (post of posts; track post.id) {
-      <app-card [post]="post"/>
+      <app-card [post]="post" />
     }
   </section>
   <!-- TODO: replace empty state with a component -->

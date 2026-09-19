@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { Favorites } from '../models'
 import { LocalStorageService } from './local-storage.service'
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FavoritesService {
   private readonly STORAGE_KEY = 'favorites'
@@ -30,7 +30,7 @@ export class FavoritesService {
   public removeFavorite(id: string): void {
     const storedFavorites = this.getFavorites()
 
-    const filteredFavorites = storedFavorites.filter(storedId => storedId !== id)
+    const filteredFavorites = storedFavorites.filter((storedId) => storedId !== id)
 
     this.localStorageService.set<Favorites>(this.STORAGE_KEY, filteredFavorites)
   }

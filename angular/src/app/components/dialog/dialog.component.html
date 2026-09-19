@@ -1,20 +1,12 @@
 <dialog class="dialog" #appDialog>
-  <p class="dialog__message"> {{ message }} </p>
+  <p class="dialog__message">{{ message }}</p>
   <div class="dialog__button-group">
     <!-- TODO: change to button component -->
-    <button
-      class="button button--primary"
-      id="dialog-confirmation-button"
-      (click)="confirm.emit()"
-    >
+    <button class="button button--primary" id="dialog-confirmation-button" (click)="confirm.emit()">
       Aceptar
     </button>
     <!-- TODO: change to button component -->
-    <button
-      class="button button--danger"
-      id ="dialog-cancel-button"
-      (click)="cancel.emit()"
-    >
+    <button class="button button--danger" id="dialog-cancel-button" (click)="cancel.emit()">
       Cancelar
     </button>
   </div>

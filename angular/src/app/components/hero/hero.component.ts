@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { CardPost } from '../../models';
+import { Component, Input } from '@angular/core'
+import { RouterLink } from '@angular/router'
+import { CardPost } from '../../models'
 
 @Component({
   selector: 'app-hero',
@@ -10,5 +10,5 @@ import { CardPost } from '../../models';
   styleUrl: './hero.component.css',
 })
 export class HeroComponent {
-  @Input({ required: true}) heroData!: CardPost
+  @Input({ required: true }) heroData!: CardPost
 }

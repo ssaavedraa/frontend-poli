@@ -78,11 +78,11 @@ button {
 
 :root {
   /* Colores: paleta base tomada del style guide de los mockups */
-  --color-primary: #DC2626;
+  --color-primary: #dc2626;
   --color-primary-light: color-mix(in srgb, var(--color-primary) 70%, white);
   --color-primary-dark: color-mix(in srgb, var(--color-primary) 80%, black);
 
-  --color-secondary: #0F172A;
+  --color-secondary: #0f172a;
   --color-secondary-light: color-mix(in srgb, var(--color-secondary) 70%, white);
   --color-secondary-dark: color-mix(in srgb, var(--color-secondary) 80%, black);
 
@@ -90,16 +90,16 @@ button {
   --color-tertiary-light: color-mix(in srgb, var(--color-tertiary) 70%, white);
   --color-tertiary-dark: color-mix(in srgb, var(--color-tertiary) 80%, black);
 
-  --color-neutral: #64748B;
+  --color-neutral: #64748b;
   --color-neutral-light: color-mix(in srgb, var(--color-neutral) 9%, white);
   --color-neutral-dark: color-mix(in srgb, var(--color-neutral) 80%, black);
 
-  --color-success: #08DE4F;
+  --color-success: #08de4f;
   --color-success-light: color-mix(in srgb, var(--color-success) 33.8%, transparent);
-  --color-success-dark: #015A01;
+  --color-success-dark: #015a01;
 
-  --color-background: #F8F9FF;
-  --color-surface: #FFFFFF;
+  --color-background: #f8f9ff;
+  --color-surface: #ffffff;
 
   /* Tipografía */
   --font-family-heading: 'Newsreader', serif;

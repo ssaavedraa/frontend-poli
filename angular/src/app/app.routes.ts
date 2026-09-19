@@ -1,6 +1,6 @@
-import { Routes } from '@angular/router';
-import { HomePage, ListPage } from './pages';
-import { PostPage } from './pages/post/post.page';
+import { Routes } from '@angular/router'
+import { HomePage, ListPage } from './pages'
+import { PostPage } from './pages/post/post.page'
 
 export const routes: Routes = [
   {
@@ -38,4 +38,4 @@ export const routes: Routes = [
   //   title: 'NewsHub | Not Found',
   //   component: NotFoundPage,
   // },
-];
+]

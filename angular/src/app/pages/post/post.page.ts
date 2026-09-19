@@ -1,10 +1,10 @@
-import { Component, DestroyRef, OnInit, signal, ViewChild, WritableSignal } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ActivatedRoute, Router } from '@angular/router';
-import { DialogComponent } from '../../components';
-import { findPostBySlug, isFavorited } from '../../domain';
-import { Post } from '../../models';
-import { FavoritesService, PostsService } from '../../services';
+import { Component, DestroyRef, OnInit, signal, ViewChild, WritableSignal } from '@angular/core'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
+import { ActivatedRoute, Router } from '@angular/router'
+import { DialogComponent } from '../../components'
+import { findPostBySlug, isFavorited } from '../../domain'
+import { Post } from '../../models'
+import { FavoritesService, PostsService } from '../../services'
 
 @Component({
   selector: 'app-post-page',
@@ -23,32 +23,30 @@ export class PostPage implements OnInit {
     private readonly postsService: PostsService,
     private readonly favoritesSevice: FavoritesService,
     private readonly router: Router,
-    private readonly destroyRef: DestroyRef
+    private readonly destroyRef: DestroyRef,
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((params) => {
-        const slug = params.get('slug')
+    this.route.paramMap.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((params) => {
+      const slug = params.get('slug')
 
-        if (!slug) {
-          // TODO: redirect to not found page
-          this.router.navigate(['/'])
-          return
-        }
+      if (!slug) {
+        // TODO: redirect to not found page
+        this.router.navigate(['/'])
+        return
+      }
 
-        const posts = this.postsService.getAll()
-        const post = findPostBySlug(posts, slug)
+      const posts = this.postsService.getAll()
+      const post = findPostBySlug(posts, slug)
 
-        if (!post) {
-          // TODO: redirect to not found page
-          this.router.navigate(['/'])
-        }
+      if (!post) {
+        // TODO: redirect to not found page
+        this.router.navigate(['/'])
+      }
 
-        this.post = post
-        this.isFavorite.set(this.checkInitialFavoriteStatus())
-      })
+      this.post = post
+      this.isFavorite.set(this.checkInitialFavoriteStatus())
+    })
   }
 
   private checkInitialFavoriteStatus(): boolean {
