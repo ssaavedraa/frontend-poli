@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, DestroyRef, OnInit, signal, WritableSignal } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
 import { findPostBySlug } from '../../domain';
 import { Post } from '../../models';
-import { PostsService } from '../../services';
+import { FavoritesService, PostsService } from '../../services';
 
 @Component({
   selector: 'app-post-page',
@@ -10,25 +11,47 @@ import { PostsService } from '../../services';
   templateUrl: './post.page.html',
   styleUrls: ['./post.page.css'],
 })
-export class PostPage {
-  readonly slug: string
-  readonly post: Post | null = null
+export class PostPage implements OnInit {
+  post: Post | null = null
+  isFavorite: WritableSignal<boolean> = signal(false)
 
   constructor(
     private readonly route: ActivatedRoute,
     private readonly postsService: PostsService,
+    private readonly favoritesSevice: FavoritesService,
     private readonly router: Router,
-  ) {
-    this.slug = this.route.snapshot.params['slug']
+    private readonly destroyRef: DestroyRef
+  ) {}
 
-    const posts = this.postsService.getAll()
-    const post = findPostBySlug(posts, this.slug)
+  ngOnInit(): void {
+    this.route.paramMap
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((params) => {
+        const slug = params.get('slug')
 
-    if (!post) {
-      this.router.navigate(['/'])
-      return
+        if (!slug) {
+          this.router.navigate(['/'])
+          return
+        }
+
+        const posts = this.postsService.getAll()
+        const post = findPostBySlug(posts, slug)
+
+        if (!post) {
+          this.router.navigate(['/'])
+        }
+
+        this.post = post
+      })
+  }
+
+  toggleFavorite(): void {
+    if (this.isFavorite()) {
+      this.favoritesSevice.removeFavorite(this.post!.id)
+    } else {
+      this.favoritesSevice.addFavorite(this.post!.id)
     }
 
-    this.post = post
+    this.isFavorite.update((current) => !current)
   }
 }
