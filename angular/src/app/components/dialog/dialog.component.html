@@ -1,0 +1,19 @@
+<dialog class="dialog" #appDialog>
+  <p class="dialog__message"> {{ message }} </p>
+  <div class="dialog__button-group">
+    <button
+      class="button button--primary"
+      id="dialog-confirmation-button"
+      (click)="confirm.emit()"
+    >
+      Aceptar
+    </button>
+    <button
+      class="button button--danger"
+      id ="dialog-cancel-button"
+      (click)="cancel.emit()"
+    >
+      Cancelar
+    </button>
+  </div>
+</dialog>

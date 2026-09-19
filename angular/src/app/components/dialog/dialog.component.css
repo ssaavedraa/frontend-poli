@@ -1,0 +1,61 @@
+.dialog {
+  border-radius: 1rem;
+  border: none;
+  box-shadow: 0 4px 8px color-mix(in srgb, var(--color-secondary) 20%, transparent);
+  margin: auto;
+  padding: 2rem;
+  width: 40vw;
+  max-width: 40vw;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: var(--color-background);
+}
+
+.dialog__message {
+  font-size: var(--font-size-lg);
+  text-align: center;
+  font-weight: 500;
+  overflow-wrap: break-word;
+}
+
+.dialog__button-group {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.dialog__button-group > .button--primary {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  box-shadow: none;
+}
+
+.dialog__button-group > .button--primary:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--color-surface);
+}
+
+dialog:not([open]) {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .dialog {
+    width: calc(100% - 2.5rem);
+    max-width: calc(100% - 2.5rem);
+    padding: 1.5rem;
+    margin: auto 1.25rem;
+    gap: 1.5rem;
+  }
+
+  .dialog__message {
+    font-size: var(--font-size-base);
+  }
+
+  .dialog__button-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
