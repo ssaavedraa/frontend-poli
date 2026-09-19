@@ -22,3 +22,5 @@ export interface CreatePostData {
   imageSrc: string
   imageAlt: string
 }
+
+export type CardPost = Pick<Post, 'id' | 'image' | 'title' | 'summary' | 'slug'>
