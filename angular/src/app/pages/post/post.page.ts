@@ -1,7 +1,7 @@
 import { Component, DestroyRef, OnInit, signal, ViewChild, WritableSignal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DialogComponent } from '../../components/dialog/dialog.component';
+import { DialogComponent } from '../../components';
 import { findPostBySlug, isFavorited } from '../../domain';
 import { Post } from '../../models';
 import { FavoritesService, PostsService } from '../../services';
