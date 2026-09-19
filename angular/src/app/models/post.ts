@@ -12,3 +12,13 @@ export interface Post {
   updatedAt: Date
   deletedAt?: Date
 }
+
+export interface CreatePostData {
+  title: string
+  slug: string
+  subtitle: string
+  summary: string
+  content: string[]
+  imageSrc: string
+  imageAlt: string
+}
