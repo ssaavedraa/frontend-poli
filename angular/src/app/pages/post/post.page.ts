@@ -1,4 +1,12 @@
-import { Component, DestroyRef, OnInit, signal, ViewChild, WritableSignal } from '@angular/core'
+import {
+  Component,
+  DestroyRef,
+  inject,
+  OnInit,
+  signal,
+  ViewChild,
+  WritableSignal,
+} from '@angular/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { ActivatedRoute, Router } from '@angular/router'
 import { DialogComponent } from '../../components'
@@ -14,17 +22,15 @@ import { FavoritesService, PostsService } from '../../services'
   styleUrls: ['./post.page.css'],
 })
 export class PostPage implements OnInit {
+  private readonly route = inject(ActivatedRoute)
+  private readonly postsService = inject(PostsService)
+  private readonly favoritesSevice = inject(FavoritesService)
+  private readonly router = inject(Router)
+  private readonly destroyRef = inject(DestroyRef)
+
   @ViewChild('confirmationDialog') confirmationDialogRef!: DialogComponent
   post: Post | null = null
   isFavorite: WritableSignal<boolean> = signal(false)
-
-  constructor(
-    private readonly route: ActivatedRoute,
-    private readonly postsService: PostsService,
-    private readonly favoritesSevice: FavoritesService,
-    private readonly router: Router,
-    private readonly destroyRef: DestroyRef,
-  ) {}
 
   ngOnInit(): void {
     this.route.paramMap.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((params) => {

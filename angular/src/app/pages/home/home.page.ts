@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, inject } from '@angular/core'
 import { RouterLink } from '@angular/router'
 import { CardComponent, HeroComponent } from '../../components'
 import { filterNotDeleted, sortByDate, truncateAt } from '../../domain'
@@ -13,10 +13,11 @@ import { PostsService } from '../../services'
   styleUrl: './home.page.css',
 })
 export class HomePage {
+  private readonly postsService = inject(PostsService)
   readonly heroPost: CardPost
   readonly featuredPosts: CardPost[]
 
-  constructor(private readonly postsService: PostsService) {
+  constructor() {
     const posts = this.postsService.getAll()
     const activePosts = filterNotDeleted(posts)
     const sorteedPosts = sortByDate(activePosts)

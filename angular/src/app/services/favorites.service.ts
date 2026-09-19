@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core'
+import { inject, Injectable } from '@angular/core'
 import { Favorites } from '../models'
 import { LocalStorageService } from './local-storage.service'
 @Injectable({
@@ -6,8 +6,7 @@ import { LocalStorageService } from './local-storage.service'
 })
 export class FavoritesService {
   private readonly STORAGE_KEY = 'favorites'
-
-  constructor(private localStorageService: LocalStorageService) {}
+  private readonly localStorageService = inject(LocalStorageService)
 
   public getFavorites(): Favorites {
     return this.localStorageService.get<Favorites>(this.STORAGE_KEY) ?? []

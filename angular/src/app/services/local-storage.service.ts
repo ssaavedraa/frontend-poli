@@ -12,15 +12,11 @@ export class LocalStorageService {
       return null
     }
 
-    let data = null
-
     try {
-      data = JSON.parse(storageData)
+      return JSON.parse(storageData) as T
     } catch (error) {
-      throw new Error('failed to parse JSON data')
+      throw new Error('failed to parse JSON data', { cause: error })
     }
-
-    return data
   }
 
   public set<T>(key: string, payload: T) {

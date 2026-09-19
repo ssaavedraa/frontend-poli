@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core'
+import { inject, Injectable } from '@angular/core'
 import posts from '../../../public/data/posts.json'
 import { CreatePostData, Image, Post } from '../models'
 import { LocalStorageService } from './local-storage.service'
@@ -8,8 +8,7 @@ import { LocalStorageService } from './local-storage.service'
 })
 export class PostsService {
   private readonly LOCAL_STORAGE_POSTS_KEY = 'posts'
-
-  constructor(private localStorageService: LocalStorageService) {}
+  private readonly localStorageService = inject(LocalStorageService)
 
   public getAll(): Post[] {
     let storedPosts = this.localStorageService.get<Post[]>(this.LOCAL_STORAGE_POSTS_KEY) ?? null

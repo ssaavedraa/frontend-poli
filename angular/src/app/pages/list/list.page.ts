@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, inject, OnInit } from '@angular/core'
 import { CardComponent } from '../../components'
 import { filterNotDeleted, sortByDate } from '../../domain'
 import { CardPost } from '../../models'
@@ -12,9 +12,8 @@ import { PostsService } from '../../services'
   styleUrl: './list.page.css',
 })
 export class ListPage implements OnInit {
+  private readonly postsService = inject(PostsService)
   posts: CardPost[] = []
-
-  constructor(private readonly postsService: PostsService) {}
 
   ngOnInit(): void {
     const posts = this.postsService.getAll()

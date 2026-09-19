@@ -7,9 +7,9 @@ import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@
   styleUrls: ['./dialog.component.css'],
 })
 export class DialogComponent {
-  @Input() message: string = ''
+  @Input() message = ''
   @Output() confirm = new EventEmitter<void>()
-  @Output() cancel = new EventEmitter<void>()
+  @Output() cancelled = new EventEmitter<void>()
   @ViewChild('appDialog') dialogRef: ElementRef<HTMLDialogElement> | undefined = undefined
 
   openDialog(): void {
