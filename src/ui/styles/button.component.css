@@ -10,7 +10,7 @@
 .button--primary {
   background-color: var(--color-surface);
   font-size: var(--font-size-base);
-  color: var(--color-neutral-light);
+  color: var(--color-neutral-dark);
 }
 
 .button--primary:hover {
@@ -21,7 +21,7 @@
 
 .button--danger {
   background-color: transparent;
-  color: var(--color-neutral-light);
+  color: var(--color-neutral-dark);
   box-shadow: none;
 }
 
