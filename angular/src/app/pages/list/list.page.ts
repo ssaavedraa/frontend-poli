@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { CardComponent } from '../../components'
 import { filterNotDeleted, sortByDate } from '../../domain'
 import { CardPost } from '../../models'
@@ -11,10 +11,12 @@ import { PostsService } from '../../services'
   templateUrl: './list.page.html',
   styleUrl: './list.page.css',
 })
-export class ListPage {
-  readonly posts: CardPost[]
+export class ListPage implements OnInit {
+  posts: CardPost[] = []
 
-  constructor(private readonly postsService: PostsService) {
+  constructor(private readonly postsService: PostsService) {}
+
+  ngOnInit(): void {
     const posts = this.postsService.getAll()
     const activePosts = filterNotDeleted(posts)
     const sortedPosts = sortByDate(activePosts)
