@@ -6,9 +6,33 @@
   max-width: 100%;
 }
 
+.home__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.home__list-link {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.home__list-link:hover {
+  color: var(--color-primary-dark);
+}
+
 @media (max-width: 768px) {
   .home__container {
     gap: 1.5rem;
     padding: 2rem 1.25rem;
+  }
+
+  .home__actions {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
   }
 }
