@@ -1,0 +1,1 @@
+cd angular && pnpm exec lint-staged

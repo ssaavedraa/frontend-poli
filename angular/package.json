@@ -8,7 +8,12 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "cd .. && husky angular/.husky"
+  },
+  "lint-staged": {
+    "*.{ts,js,mjs,cjs,json,html,css,scss,md}": "prettier --write",
+    "*.{ts,html}": "eslint --fix"
   },
   "private": true,
   "packageManager": "pnpm@11.9.0",
@@ -30,7 +35,9 @@
     "@eslint/js": "^10.0.1",
     "angular-eslint": "21.4.0",
     "eslint": "^10.3.0",
+    "husky": "^9.1.7",
     "jsdom": "^28.0.0",
+    "lint-staged": "^17.5.1",
     "prettier": "^3.8.1",
     "typescript": "~5.9.2",
     "typescript-eslint": "8.59.2",
