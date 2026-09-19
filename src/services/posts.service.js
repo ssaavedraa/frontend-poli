@@ -30,7 +30,35 @@ async function preloadPosts() {
   return preloadedPosts
 }
 
+async function create(payload) {
+  const storedPosts = await getAll()
+
+  const postImage = {
+    src: payload.imageSrc,
+    alt: payload.imageAlt,
+  }
+
+  const newPost = {
+    id: crypto.randomUUID(),
+    title: payload.title,
+    slug: payload.slug,
+    subtitle: payload.subtitle,
+    summary: payload.summary,
+    content: payload.content,
+    image: postImage,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  }
+
+  storedPosts.push(newPost)
+
+  LocalStorageService.set(LOCAL_STORAGE_POSTS_KEY, storedPosts)
+
+  return newPost
+}
+
 export const PostsService = {
   getAll,
-  softDelete
+  softDelete,
+  create,
 }
