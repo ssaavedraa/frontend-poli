@@ -2,7 +2,7 @@ import { Component, DestroyRef, OnInit, signal, ViewChild, WritableSignal } from
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DialogComponent } from '../../components/dialog/dialog.component';
-import { findPostBySlug } from '../../domain';
+import { findPostBySlug, isFavorited } from '../../domain';
 import { Post } from '../../models';
 import { FavoritesService, PostsService } from '../../services';
 
@@ -33,6 +33,7 @@ export class PostPage implements OnInit {
         const slug = params.get('slug')
 
         if (!slug) {
+          // TODO: redirect to not found page
           this.router.navigate(['/'])
           return
         }
@@ -41,11 +42,20 @@ export class PostPage implements OnInit {
         const post = findPostBySlug(posts, slug)
 
         if (!post) {
+          // TODO: redirect to not found page
           this.router.navigate(['/'])
         }
 
         this.post = post
       })
+
+      this.isFavorite.set(this.checkInitialFavoriteStatus())
+  }
+
+  private checkInitialFavoriteStatus(): boolean {
+    const favorites = this.favoritesSevice.getFavorites()
+
+    return isFavorited(this.post!.id, favorites)
   }
 
   toggleFavorite(): void {
