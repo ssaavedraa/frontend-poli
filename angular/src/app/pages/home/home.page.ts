@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CardComponent } from '../../components';
+import { CardComponent, HeroComponent } from '../../components';
 import { filterNotDeleted, sortByDate, truncateAt } from '../../domain';
 import { CardPost } from '../../models';
 import { PostsService } from '../../services';
@@ -7,7 +7,7 @@ import { PostsService } from '../../services';
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [CardComponent],
+  imports: [CardComponent, HeroComponent],
   templateUrl: './home.page.html',
   styleUrl: './home.page.css',
 })

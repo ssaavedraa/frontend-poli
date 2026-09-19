@@ -1,5 +1,5 @@
-<main class="home__container">
-  <section id="news-hub-hero-slot"></section>
+  <main class="home__container">
+  <app-hero [heroData]="heroPost"/>
   <section class="home__card-container">
     @for (post of featuredPosts; track post.id) {
       <app-card [post]="post"/>
