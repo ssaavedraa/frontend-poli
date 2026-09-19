@@ -30,7 +30,7 @@
   background-color: var(--color-surface);
   padding: 2rem;
   border-radius: 1rem;
-  box-shadow: 0 10px 32px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 32px color-mix(in srgb, var(--color-secondary) 8%, transparent);
   width: 100%;
   max-width: 32rem;
   display: flex;
@@ -46,7 +46,7 @@
 }
 
 .contact__label {
-  font-size: 0.75rem;
+  font-size: var(--font-size-sm);
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -59,8 +59,8 @@
 }
 
 .contact__hint {
-  font-size: 0.75rem;
-  color: var(--color-neutral-light);
+  font-size: var(--font-size-sm);
+  color: var(--color-neutral);
 }
 
 .contact__input {
@@ -74,7 +74,7 @@
 }
 
 .contact__input::placeholder {
-  color: var(--color-neutral-light);
+  color: var(--color-neutral);
 }
 
 .contact__input:focus {
@@ -89,21 +89,34 @@
 
 .contact__submit {
   width: 100%;
-  padding: 0.9rem 1rem;
   margin-top: 0.25rem;
-  font-weight: 600;
 }
 
 .contact__success-message {
   font-size: var(--font-size-sm);
-  background-color: rgba(8, 222, 79, 0.338);
-
+  background-color: var(--color-success-light);
   padding: 1rem;
   border-radius: 0.5rem;
-  color: rgb(1, 90, 1);
+  color: var(--color-success-dark);
   text-align: center;
 }
 
 .contact__success-message--hidden {
   display: none;
+}
+
+@media (max-width: 768px) {
+  .contact__container {
+    padding: 2rem 1.25rem 3rem;
+    min-height: auto;
+    align-items: stretch;
+  }
+
+  .contact__title {
+    font-size: var(--font-size-lg);
+  }
+
+  .contact__form {
+    padding: 1.25rem;
+  }
 }

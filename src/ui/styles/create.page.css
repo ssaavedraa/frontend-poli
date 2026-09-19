@@ -8,6 +8,7 @@
   font-weight: 700;
   color: var(--color-secondary);
   margin-bottom: 0.75rem;
+  overflow-wrap: break-word;
 }
 
 .create__description {
@@ -22,7 +23,7 @@
   background-color: var(--color-surface);
   padding: 2rem;
   border-radius: 1rem;
-  box-shadow: 0 10px 32px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 32px color-mix(in srgb, var(--color-secondary) 8%, transparent);
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -36,7 +37,7 @@
 }
 
 .create__label {
-  font-size: 0.75rem;
+  font-size: var(--font-size-sm);
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -49,7 +50,7 @@
 }
 
 .create__hint {
-  font-size: 0.75rem;
+  font-size: var(--font-size-sm);
   color: var(--color-neutral);
 }
 
@@ -131,7 +132,7 @@
 }
 
 .create__paragraph-label {
-  font-size: 0.75rem;
+  font-size: var(--font-size-sm);
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -196,11 +197,6 @@
   gap: 1.25rem;
 }
 
-.create__submit {
-  padding: 0.75rem 1.15rem;
-  font-weight: 600;
-}
-
 @media (max-width: 768px) {
   .create__container {
     padding: 2rem 1.25rem 3rem;
@@ -210,6 +206,11 @@
     font-size: var(--font-size-lg);
   }
 
+  .create__form {
+    padding: 1.25rem;
+  }
+
+  .create__field,
   .create__media,
   .create__body-header,
   .create__actions {

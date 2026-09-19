@@ -2,20 +2,22 @@
   border-radius: 1rem;
   padding: 1.5rem;
   background-color: var(--color-surface);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px color-mix(in srgb, var(--color-secondary) 10%, transparent);
+  min-width: 0;
 }
 
 .card__image {
   height: 200px;
   width: 100%;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 0.5rem;
 }
 
 .card__title {
   font-size: var(--font-size-lg);
   font-family: var(--font-family-heading);
   margin-top: 1rem;
+  overflow-wrap: break-word;
 }
 
 .card__summary {
@@ -23,13 +25,14 @@
   font-family: var(--font-family-body);
   margin-top: 0.5rem;
   color: var(--color-neutral-dark);
+  overflow-wrap: break-word;
 }
 
 .card__link {
   text-decoration: none;
   color: var(--color-primary);
   font-family: var(--font-family-body);
-  font-weight: 400
+  font-weight: 400;
 }
 
 .card__container {
@@ -38,4 +41,19 @@
   gap: 2rem;
   align-items: stretch;
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 1.25rem;
+  }
+
+  .card__container {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .card__title {
+    font-size: var(--font-size-lg);
+  }
 }
