@@ -47,9 +47,8 @@ export class PostPage implements OnInit {
         }
 
         this.post = post
+        this.isFavorite.set(this.checkInitialFavoriteStatus())
       })
-
-      this.isFavorite.set(this.checkInitialFavoriteStatus())
   }
 
   private checkInitialFavoriteStatus(): boolean {
