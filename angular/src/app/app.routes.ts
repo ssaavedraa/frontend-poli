@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { HomePage } from './pages/home/home.page';
+import { HomePage, ListPage } from './pages';
 
 export const routes: Routes = [
   {
@@ -27,11 +27,11 @@ export const routes: Routes = [
   //   title: 'NewsHub | Contact',
   //   component: ContactPage,
   // },
-  // {
-  //   path: 'list',
-  //   title: 'NewsHub | List',
-  //   component: ListPage,
-  // },
+  {
+    path: 'list',
+    title: 'NewsHub | List',
+    component: ListPage,
+  },
   // {
   //   path: '**',
   //   title: 'NewsHub | Not Found',
