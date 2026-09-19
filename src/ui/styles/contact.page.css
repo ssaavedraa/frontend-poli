@@ -1,0 +1,109 @@
+.contact__container {
+  margin: 0 auto;
+  padding: 4rem 1.5rem 5rem;
+  min-height: calc(100vh - 12rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact__title {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-secondary);
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.contact__description {
+  font-size: var(--font-size-base);
+  color: var(--color-neutral);
+  margin-bottom: 2rem;
+  max-width: 26rem;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.contact__form {
+  background-color: var(--color-surface);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 32px rgba(15, 23, 42, 0.08);
+  width: 100%;
+  max-width: 32rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact__field {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem 1rem;
+  align-items: center;
+}
+
+.contact__label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.contact__label::after {
+  content: " *";
+  color: var(--color-primary);
+}
+
+.contact__hint {
+  font-size: 0.75rem;
+  color: var(--color-neutral-light);
+}
+
+.contact__input {
+  grid-column: 1 / -1;
+  width: 100%;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--color-neutral-light);
+  padding: 0.85rem 1rem;
+  color: var(--color-secondary);
+}
+
+.contact__input::placeholder {
+  color: var(--color-neutral-light);
+}
+
+.contact__input:focus {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 0;
+}
+
+.contact__input--textarea {
+  min-height: 8.5rem;
+  resize: none;
+}
+
+.contact__submit {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  margin-top: 0.25rem;
+  font-weight: 600;
+}
+
+.contact__success-message {
+  font-size: var(--font-size-sm);
+  background-color: rgba(8, 222, 79, 0.338);
+
+  padding: 1rem;
+  border-radius: 0.5rem;
+  color: rgb(1, 90, 1);
+  text-align: center;
+}
+
+.contact__success-message--hidden {
+  display: none;
+}
