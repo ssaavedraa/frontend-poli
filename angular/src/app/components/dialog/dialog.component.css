@@ -26,17 +26,6 @@
   gap: 0.5rem;
 }
 
-.dialog__button-group > .button--primary {
-  background-color: var(--color-primary);
-  color: var(--color-surface);
-  box-shadow: none;
-}
-
-.dialog__button-group > .button--primary:hover {
-  background-color: var(--color-primary-dark);
-  color: var(--color-surface);
-}
-
 dialog:not([open]) {
   display: none;
 }

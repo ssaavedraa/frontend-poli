@@ -1,14 +1,12 @@
 <main id="news-hub-main" class="detail__container">
   <img id="news-image" class="detail__image" [src]="post?.image?.src" [alt]="post?.image?.alt" />
   <section class="detail-buttons__container">
-    <!-- TODO: change to button component -->
-    <button id="favorites-button" class="button button--primary" (click)="toggleFavorite()">
+    <app-button id="favorites-button" variant="primary" (click)="toggleFavorite()">
       {{ isFavorite() ? 'Eliminar de favoritos' : 'Agregar a favoritos' }}
-    </button>
-    <!-- TODO: change to button component -->
-    <button id="delete-button" class="button button--danger" (click)="openConfirmationDialog()">
+    </app-button>
+    <app-button id="delete-button" variant="danger" (click)="openConfirmationDialog()">
       Eliminar noticia
-    </button>
+    </app-button>
   </section>
   <h1 id="news-title" class="detail__title">{{ post?.title }}</h1>
   <h2 id="news-subtitle" class="detail__subtitle">{{ post?.subtitle }}</h2>

@@ -1,13 +1,11 @@
 <dialog class="dialog" #appDialog>
   <p class="dialog__message">{{ message }}</p>
   <div class="dialog__button-group">
-    <!-- TODO: change to button component -->
-    <button class="button button--primary" id="dialog-confirmation-button" (click)="confirm.emit()">
+    <app-button id="dialog-confirmation-button" variant="accent" (click)="confirm.emit()">
       Aceptar
-    </button>
-    <!-- TODO: change to button component -->
-    <button class="button button--danger" id="dialog-cancel-button" (click)="cancelled.emit()">
+    </app-button>
+    <app-button id="dialog-cancel-button" variant="danger" (click)="cancelled.emit()">
       Cancelar
-    </button>
+    </app-button>
   </div>
 </dialog>

@@ -1,8 +1,10 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core'
+import { ButtonComponent } from '../button/button.component'
 
 @Component({
   selector: 'app-dialog',
   standalone: true,
+  imports: [ButtonComponent],
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.css'],
 })

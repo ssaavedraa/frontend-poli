@@ -9,7 +9,7 @@ import {
 } from '@angular/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { ActivatedRoute, Router } from '@angular/router'
-import { DialogComponent } from '../../components'
+import { ButtonComponent, DialogComponent } from '../../components'
 import { findPostBySlug, isFavorited } from '../../domain'
 import { Post } from '../../models'
 import { FavoritesService, PostsService } from '../../services'
@@ -17,7 +17,7 @@ import { FavoritesService, PostsService } from '../../services'
 @Component({
   selector: 'app-post-page',
   standalone: true,
-  imports: [DialogComponent],
+  imports: [ButtonComponent, DialogComponent],
   templateUrl: './post.page.html',
   styleUrls: ['./post.page.css'],
 })
