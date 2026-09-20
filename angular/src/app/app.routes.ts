@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router'
-import { HomePage, ListPage } from './pages'
-import { PostPage } from './pages/post/post.page'
+import { FavoritesPage, HomePage, ListPage, PostPage } from './pages'
 
 export const routes: Routes = [
   {
@@ -8,11 +7,11 @@ export const routes: Routes = [
     title: 'NewsHub | Home',
     component: HomePage,
   },
-  // {
-  //   path: 'favorites',
-  //   title: 'NewsHub | Favorites',
-  //   component: FavoritesPage,
-  // },
+  {
+    path: 'favorites',
+    title: 'NewsHub | Favorites',
+    component: FavoritesPage,
+  },
   {
     path: 'post/:slug',
     title: 'NewsHub | Post',
