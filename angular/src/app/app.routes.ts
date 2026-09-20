@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router'
-import { FavoritesPage, HomePage, ListPage, NotFoundPage, PostPage } from './pages'
+import { ContactPage, FavoritesPage, HomePage, ListPage, NotFoundPage, PostPage } from './pages'
 
 export const routes: Routes = [
   {
@@ -22,11 +22,11 @@ export const routes: Routes = [
   //   title: 'NewsHub | Create Post',
   //   component: CreatePostPage,
   // },
-  // {
-  //   path: 'contact',
-  //   title: 'NewsHub | Contact',
-  //   component: ContactPage,
-  // },
+  {
+    path: 'contact',
+    title: 'NewsHub | Contact',
+    component: ContactPage,
+  },
   {
     path: 'list',
     title: 'NewsHub | List',
