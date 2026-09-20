@@ -37,8 +37,7 @@ export class PostPage implements OnInit {
       const slug = params.get('slug')
 
       if (!slug) {
-        // TODO: redirect to not found page
-        this.router.navigate(['/'])
+        this.router.navigate(['/not-found'])
         return
       }
 
@@ -46,8 +45,8 @@ export class PostPage implements OnInit {
       const post = findPostBySlug(posts, slug)
 
       if (!post) {
-        // TODO: redirect to not found page
-        this.router.navigate(['/'])
+        this.router.navigate(['/not-found'])
+        return
       }
 
       this.post = post
