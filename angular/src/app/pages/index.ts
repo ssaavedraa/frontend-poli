@@ -1,3 +1,4 @@
+export * from './contact/contact.page'
 export * from './favorites/favorites.page'
 export * from './home/home.page'
 export * from './list/list.page'
