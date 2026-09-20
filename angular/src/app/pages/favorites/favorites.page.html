@@ -1,0 +1,16 @@
+<main id="news-hub-main" class="favorites__container">
+  <h1 class="favorites__title">
+    Tus noticias favoritas
+  </h1>
+  <p class="favorites__subtitle">
+    Artículos seleccionados para lectura reposada y análisis en profundidad.
+  </p>
+  <section id="news-hub-section" class="favorites__card-container">
+    @for (post of favoritePosts; track post.id) {
+      <app-card [post]="post"/>
+    } @empty {
+      <!-- TODO: Add empty state component -->
+      <p>No hay noticias favoritas</p>
+    }
+  </section>
+</main>

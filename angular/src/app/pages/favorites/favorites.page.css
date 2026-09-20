@@ -18,6 +18,14 @@
   max-width: 70%;
 }
 
+.favorites__card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+  width: 100%;
+}
+
 .empty-list__container {
   display: flex;
   flex-direction: column;
@@ -50,5 +58,10 @@
 
   .empty-list__title {
     font-size: var(--font-size-lg);
+  }
+
+  .favorites__card-container {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 }
