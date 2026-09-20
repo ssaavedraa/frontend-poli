@@ -1,4 +1,5 @@
 export * from './favorites/favorites.page'
 export * from './home/home.page'
 export * from './list/list.page'
+export * from './not-found/not-found.page'
 export * from './post/post.page'
