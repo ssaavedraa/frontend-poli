@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router'
-import { FavoritesPage, HomePage, ListPage, PostPage } from './pages'
+import { FavoritesPage, HomePage, ListPage, NotFoundPage, PostPage } from './pages'
 
 export const routes: Routes = [
   {
@@ -32,9 +32,14 @@ export const routes: Routes = [
     title: 'NewsHub | List',
     component: ListPage,
   },
-  // {
-  //   path: '**',
-  //   title: 'NewsHub | Not Found',
-  //   component: NotFoundPage,
-  // },
+  {
+    path: 'not-found',
+    title: 'NewsHub | Not Found',
+    component: NotFoundPage,
+  },
+  {
+    path: '**',
+    title: 'NewsHub | Not Found',
+    component: NotFoundPage,
+  },
 ]
