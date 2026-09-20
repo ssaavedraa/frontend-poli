@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { booleanAttribute, Component, Input } from '@angular/core'
 
 @Component({
   selector: 'app-button',
@@ -8,4 +8,6 @@ import { Component, Input } from '@angular/core'
 })
 export class ButtonComponent {
   @Input() variant: 'primary' | 'danger' | 'accent' = 'primary'
+  @Input() type: 'button' | 'submit' | 'reset' = 'button'
+  @Input({ transform: booleanAttribute }) disabled = false
 }
