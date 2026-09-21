@@ -1,8 +1,8 @@
 import { Component, inject, signal } from '@angular/core'
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
 import { ButtonComponent } from '../../components'
-import { getControlErrorMessage } from '../../domain'
 import { LocalStorageService } from '../../services'
+import { getControlErrorMessage } from '../utils'
 
 @Component({
   selector: 'app-contact-page',

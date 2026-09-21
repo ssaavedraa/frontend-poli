@@ -2,9 +2,10 @@ import { Component, inject } from '@angular/core'
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
 import { ButtonComponent } from '../../components'
-import { getControlErrorMessage, getLatestSlugIndex, slugify } from '../../domain'
+import { getLatestSlugIndex, slugify } from '../../domain'
 import { CreatePostData } from '../../models'
 import { PostsService } from '../../services'
+import { getControlErrorMessage } from '../utils'
 
 @Component({
   selector: 'app-create-page',
