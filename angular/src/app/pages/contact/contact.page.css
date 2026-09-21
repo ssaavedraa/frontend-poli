@@ -54,7 +54,7 @@
 }
 
 .contact__label::after {
-  content: " *";
+  content: ' *';
   color: var(--color-primary);
 }
 
@@ -80,6 +80,17 @@
 .contact__input:focus {
   outline: 2px solid var(--color-primary-light);
   outline-offset: 0;
+}
+
+.contact__input--invalid {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 0;
+}
+
+.contact__error {
+  grid-column: 1 / -1;
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
 }
 
 .contact__input--textarea {

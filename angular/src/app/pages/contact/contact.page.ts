@@ -1,7 +1,8 @@
-import { Component, inject, signal } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ButtonComponent } from '../../components';
-import { LocalStorageService } from '../../services';
+import { Component, inject, signal } from '@angular/core'
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
+import { ButtonComponent } from '../../components'
+import { getControlErrorMessage } from '../../domain'
+import { LocalStorageService } from '../../services'
 
 @Component({
   selector: 'app-contact-page',
@@ -12,14 +13,21 @@ import { LocalStorageService } from '../../services';
 })
 export class ContactPage {
   private readonly localStorageService = inject(LocalStorageService)
+  protected readonly getControlErrorMessage = getControlErrorMessage
   showSuccessMessage = signal(false)
   contactForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    message: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(500)]),
+    message: new FormControl('', [
+      Validators.required,
+      Validators.minLength(10),
+      Validators.maxLength(500),
+    ]),
   })
 
   onSubmit(): void {
+    this.contactForm.markAllAsTouched()
+
     if (this.contactForm.invalid) {
       return
     }
