@@ -2,7 +2,7 @@
 
 Plataforma web de noticias para consultar, guardar, crear y eliminar artículos desde el navegador. Es un proyecto académico del módulo de **Desarrollo de Front-end** del Politécnico Grancolombiano.
 
-La aplicación funciona por completo en el cliente: el JSON semilla se carga una vez y a partir de ahí el estado vive en `localStorage`.
+Esta rama es la versión **Angular**. La aplicación funciona por completo en el cliente: el JSON semilla se carga una vez y a partir de ahí el estado vive en `localStorage`.
 
 ## Demo en vivo
 
@@ -20,7 +20,7 @@ La aplicación funciona por completo en el cliente: el JSON semilla se carga una
 
 ```bash
 git clone https://github.com/ssaavedraa/frontend-poli
-cd newsHub
+cd frontend-poli
 pnpm install
 pnpm start
 ```
