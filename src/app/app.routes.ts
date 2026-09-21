@@ -12,42 +12,42 @@ import {
 export const routes: Routes = [
   {
     path: '',
-    title: 'NewsHub | Home',
+    title: 'NewsHub | Inicio',
     component: HomePage,
   },
   {
     path: 'favorites',
-    title: 'NewsHub | Favorites',
+    title: 'NewsHub | Favoritos',
     component: FavoritesPage,
   },
   {
     path: 'post/:slug',
-    title: 'NewsHub | Post',
+    title: 'NewsHub | Noticia',
     component: PostPage,
   },
   {
     path: 'create',
-    title: 'NewsHub | Create Post',
+    title: 'NewsHub | Crear noticia',
     component: CreatePage,
   },
   {
     path: 'contact',
-    title: 'NewsHub | Contact',
+    title: 'NewsHub | Contacto',
     component: ContactPage,
   },
   {
     path: 'list',
-    title: 'NewsHub | List',
+    title: 'NewsHub | Noticias',
     component: ListPage,
   },
   {
     path: 'not-found',
-    title: 'NewsHub | Not Found',
+    title: 'NewsHub | No encontrada',
     component: NotFoundPage,
   },
   {
     path: '**',
-    title: 'NewsHub | Not Found',
+    title: 'NewsHub | No encontrada',
     component: NotFoundPage,
   },
 ]
