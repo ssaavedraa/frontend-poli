@@ -28,7 +28,7 @@ if (!favoritesData || favoritesData.length === 0) {
   const emptyStateContent = `
     <div class="empty-list__container">
       <p class="empty-list__title">No hay noticias favoritas</p>
-      <a class="button button--accent" href="list.html">Explorar noticias</a>
+      <a class="button button--accent" href="/src/ui/pages/list.html">Explorar noticias</a>
     </div>
   `
 

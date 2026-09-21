@@ -1,3 +1,5 @@
+import { escapeHtml } from '../../../utils/escape-html.js'
+
 /**
  * @typedef {Object} HeroData
  * @property {Image} image - The image for the hero.
@@ -18,14 +20,20 @@
  * @returns {string} - The HTML string representing the hero component.
  */
 export function renderHero(heroData) {
+  const title = escapeHtml(heroData.title)
+  const summary = escapeHtml(heroData.summary)
+  const imageSrc = escapeHtml(heroData.image.src)
+  const imageAlt = escapeHtml(heroData.image.alt)
+  const slug = encodeURIComponent(heroData.slug)
+
   return `
     <article class="hero">
       <div class="hero__overlay">
-        <h2 class="hero__title">${heroData.title}</h2>
-        <p class="hero__summary">${heroData.summary}</p>
-        <a href="/src/ui/pages/detail.html?slug=${heroData.slug}" class="hero__link">Leer más</a>
+        <h1 class="hero__title">${title}</h1>
+        <p class="hero__summary">${summary}</p>
+        <a href="/src/ui/pages/detail.html?slug=${slug}" class="hero__link">Leer más</a>
       </div>
-      <img src="${heroData.image.src}" alt="${heroData.image.alt}" class="hero__image" />
+      <img src="${imageSrc}" alt="${imageAlt}" class="hero__image" />
     </article>
   `
 }

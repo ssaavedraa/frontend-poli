@@ -115,3 +115,7 @@ button {
 main {
   background-color: var(--color-background);
 }
+
+.empty-state--hidden {
+  display: none;
+}

@@ -62,11 +62,11 @@
             <h2 id="body-label" class="create__label">Cuerpo del artículo</h2>
             <p class="create__body-copy">Estructura tu noticia párrafo a párrafo para facilitar su lectura.</p>
           </div>
-          <p class="create__hint" id="paragraphs-count">2 párrafos redactados</p>
+          <p class="create__hint" id="paragraphs-count">1 párrafo redactado</p>
         </div>
 
         <div class="create__paragraphs" id="paragraphs-list">
-          <article class="create__paragraph" id='create-paragraph-1'>
+          <article class="create__paragraph" id="create-paragraph-1">
             <div class="create__paragraph-header">
               <label for="paragraph-1" class="create__paragraph-label">Párrafo 1</label>
               <span class="create__hint">Apertura</span>
@@ -79,20 +79,22 @@
               required
               placeholder="Escribe el primer párrafo introductorio de la noticia..."></textarea>
           </article>
+        </div>
 
-          <article class="create__paragraph create__paragraph--hidden" id='create-paragraph-template'>
+        <template id="create-paragraph-template">
+          <article class="create__paragraph">
             <div class="create__paragraph-header">
-              <label for="paragraph-2" class="create__paragraph-label">Párrafo 2</label>
+              <label class="create__paragraph-label">Párrafo</label>
               <button type="button" class="create__paragraph-remove">Eliminar</button>
             </div>
             <textarea
-              id="paragraph-2"
               name="paragraphs"
               class="create__paragraph-input"
               rows="3"
+              required
               placeholder="Desarrolla el contexto, citas relevantes o datos complementarios..."></textarea>
           </article>
-        </div>
+        </template>
 
         <button type="button" class="button create__add-paragraph" id="add-paragraph">Agregar párrafo</button>
       </section>

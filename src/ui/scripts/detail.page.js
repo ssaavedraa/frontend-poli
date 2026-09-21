@@ -7,6 +7,7 @@ import { renderDialog } from './dialog.component.js'
 const postSlug = new URLSearchParams(window.location.search).get('slug')
 
 if (!postSlug) {
+  document.location.href = '/'
   throw new Error('Post slug not found')
 }
 

@@ -48,12 +48,18 @@
 }
 
 .button--active {
-  background-color: var(--color-primary-light);
+  background-color: var(--color-primary);
   color: var(--color-surface);
   box-shadow: none;
 }
 
-.button--active:hover {
+.button--primary.button--active {
   background-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.button--active:hover,
+.button--primary.button--active:hover {
+  background-color: var(--color-primary-dark);
   color: var(--color-surface);
 }

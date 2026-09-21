@@ -1,3 +1,5 @@
+import { escapeHtml } from '../../../utils/escape-html.js'
+
 /**
  * @typedef {Object} CardData
  * @property {Image} image - The image for the card.
@@ -18,12 +20,18 @@
  * @returns {string} - The HTML string representing the card component.
  */
 export function renderCard(cardData) {
+  const title = escapeHtml(cardData.title)
+  const summary = escapeHtml(cardData.summary)
+  const imageSrc = escapeHtml(cardData.image.src)
+  const imageAlt = escapeHtml(cardData.image.alt)
+  const slug = encodeURIComponent(cardData.slug)
+
   return `
     <article class="card">
-      <img src="${cardData.image.src}" alt="${cardData.image.alt}" class="card__image" />
-      <h2 class="card__title">${cardData.title}</h2>
-      <p class="card__summary">${cardData.summary}</p>
-      <a href="/src/ui/pages/detail.html?slug=${cardData.slug}" class="card__link">Leer más</a>
+      <img src="${imageSrc}" alt="${imageAlt}" class="card__image" />
+      <h2 class="card__title">${title}</h2>
+      <p class="card__summary">${summary}</p>
+      <a href="/src/ui/pages/detail.html?slug=${slug}" class="card__link">Leer más</a>
     </article>
   `
 }
