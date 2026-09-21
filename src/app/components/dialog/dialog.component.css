@@ -4,12 +4,23 @@
   box-shadow: 0 4px 8px color-mix(in srgb, var(--color-secondary) 20%, transparent);
   margin: auto;
   padding: 2rem;
-  width: 40vw;
-  max-width: 40vw;
-  display: flex;
+  width: min(40rem, calc(100% - 2.5rem));
+  max-width: 100%;
   flex-direction: column;
   gap: 2rem;
   background-color: var(--color-background);
+}
+
+.dialog[open] {
+  display: flex;
+}
+
+.dialog__title {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
 }
 
 .dialog__message {
@@ -32,13 +43,11 @@ dialog:not([open]) {
 
 @media (max-width: 768px) {
   .dialog {
-    width: calc(100% - 2.5rem);
-    max-width: calc(100% - 2.5rem);
     padding: 1.5rem;
-    margin: auto 1.25rem;
     gap: 1.5rem;
   }
 
+  .dialog__title,
   .dialog__message {
     font-size: var(--font-size-base);
   }

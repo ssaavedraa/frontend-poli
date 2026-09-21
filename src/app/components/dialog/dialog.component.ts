@@ -9,6 +9,7 @@ import { ButtonComponent } from '../button/button.component'
   styleUrls: ['./dialog.component.css'],
 })
 export class DialogComponent {
+  @Input() title = ''
   @Input() message = ''
   @Output() confirm = new EventEmitter<void>()
   @Output() cancelled = new EventEmitter<void>()
@@ -16,7 +17,6 @@ export class DialogComponent {
 
   openDialog(): void {
     if (!this.dialogRef) {
-      console.warn('Dialog reference not found')
       return
     }
 
@@ -25,7 +25,6 @@ export class DialogComponent {
 
   closeDialog(): void {
     if (!this.dialogRef) {
-      console.warn('Dialog reference not found')
       return
     }
 

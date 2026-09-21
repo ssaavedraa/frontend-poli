@@ -1,5 +1,13 @@
-<dialog class="dialog" #appDialog>
-  <p class="dialog__message">{{ message }}</p>
+<dialog
+  class="dialog"
+  #appDialog
+  [attr.aria-labelledby]="title ? 'dialog-title' : null"
+  [attr.aria-describedby]="'dialog-message'"
+>
+  @if (title) {
+    <h2 id="dialog-title" class="dialog__title">{{ title }}</h2>
+  }
+  <p id="dialog-message" class="dialog__message">{{ message }}</p>
   <div class="dialog__button-group">
     <app-button id="dialog-confirmation-button" variant="accent" (click)="confirm.emit()">
       Aceptar
