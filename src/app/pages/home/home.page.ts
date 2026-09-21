@@ -14,16 +14,16 @@ import { PostsService } from '../../services'
 })
 export class HomePage {
   private readonly postsService = inject(PostsService)
-  readonly heroPost: CardPost
+  readonly heroPost: CardPost | null
   readonly featuredPosts: CardPost[]
 
   constructor() {
     const posts = this.postsService.getAll()
     const activePosts = filterNotDeleted(posts)
-    const sorteedPosts = sortByDate(activePosts)
-    const [heroPost, ...featuredPosts] = truncateAt(sorteedPosts, 7)
+    const sortedPosts = sortByDate(activePosts)
+    const [heroPost, ...featuredPosts] = truncateAt(sortedPosts, 7)
 
-    this.heroPost = heroPost
+    this.heroPost = heroPost ?? null
     this.featuredPosts = featuredPosts
   }
 }

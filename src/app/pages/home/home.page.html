@@ -1,13 +1,19 @@
 <main class="home__container">
-  <app-hero [heroData]="heroPost" />
-  <section class="home__card-container">
-    @for (post of featuredPosts; track post.id) {
-      <app-card [post]="post" />
-    }
-  </section>
-  <!-- TODO: replace empty state with a component -->
-  <section class="home__actions">
-    <a class="home__list-link" routerLink="/list">Ver todas las noticias</a>
-    <a class="button button--accent" routerLink="/create">Crear noticia</a>
-  </section>
+  @if (heroPost) {
+    <app-hero [heroData]="heroPost" />
+    <section class="home__card-container">
+      @for (post of featuredPosts; track post.id) {
+        <app-card [post]="post" />
+      }
+    </section>
+    <section class="home__actions">
+      <a class="home__list-link" routerLink="/list">Ver todas las noticias</a>
+      <a class="button button--accent" routerLink="/create">Crear noticia</a>
+    </section>
+  } @else {
+    <section class="empty-list__container">
+      <h1 class="empty-list__title">No hay noticias</h1>
+      <a class="button button--accent" routerLink="/create">Crear noticia</a>
+    </section>
+  }
 </main>
