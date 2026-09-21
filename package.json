@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "format": "prettier --write .",
-    "prepare": "cd .. && husky angular/.husky"
+    "prepare": "husky"
   },
   "lint-staged": {
     "*.{ts,js,mjs,cjs,json,html,css,scss,md}": "prettier --write",
