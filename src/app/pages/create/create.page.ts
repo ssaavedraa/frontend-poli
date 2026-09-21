@@ -27,7 +27,7 @@ export class CreatePage {
       Validators.minLength(10),
       Validators.maxLength(220),
     ]),
-    imageSrc: new FormControl('', [Validators.required]),
+    imageSrc: new FormControl('', [Validators.required, Validators.pattern(/^https?:\/\/\S+$/i)]),
     imageAlt: new FormControl('', [Validators.required]),
     content: new FormArray<FormControl<string>>([
       new FormControl('', [Validators.required]) as FormControl<string>,

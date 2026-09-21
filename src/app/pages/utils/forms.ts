@@ -24,7 +24,7 @@ export function getControlErrorMessage(control: AbstractControl | null | undefin
   }
 
   if (errors['pattern']) {
-    return 'El formato no es válido'
+    return 'Introduce una URL válida que empiece por http:// o https://'
   }
 
   return 'Campo inválido'
