@@ -4,12 +4,5 @@
     fill="#fff"
     d="M7.4 25.2V6.8h4.05l8.7 12.35V6.8H24.6v18.4h-4.05l-8.7-12.35v12.35H7.4z"
   />
-  <circle cx="24.6" cy="7.35" r="2.15" fill="#fff"/>
-  <path
-    fill="none"
-    stroke="#fff"
-    stroke-width="1.35"
-    stroke-linecap="round"
-    d="M21.7 9.15 23.15 8.2"
-  />
+  <circle cx="24.55" cy="7.2" r="2.2" fill="#fff"/>
 </svg>
