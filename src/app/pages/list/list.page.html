@@ -4,11 +4,16 @@
     Archivo centralizado de coberturas exclusivas, reportajes a profundidad y crónicas de
     actualidad.
   </p>
-  <section class="list__card-container">
-    @for (post of posts; track post.id) {
-      <app-card [post]="post" />
-    }
-  </section>
-  <!-- TODO: replace empty state with a component -->
-  <section class="empty-state"></section>
+  @if (posts.length) {
+    <section class="list__card-container">
+      @for (post of posts; track post.id) {
+        <app-card [post]="post" />
+      }
+    </section>
+  } @else {
+    <section class="empty-list__container">
+      <p class="empty-list__title">No hay noticias</p>
+      <a class="empty-list__link" routerLink="/create">Crear una</a>
+    </section>
+  }
 </main>
