@@ -3,12 +3,16 @@
   <p class="favorites__subtitle">
     Artículos seleccionados para lectura reposada y análisis en profundidad.
   </p>
-  <section id="news-hub-section" class="favorites__card-container">
-    @for (post of favoritePosts; track post.id) {
-      <app-card [post]="post" />
-    } @empty {
-      <!-- TODO: Add empty state component -->
-      <p>No hay noticias favoritas</p>
-    }
-  </section>
+  @if (favoritePosts.length) {
+    <section id="news-hub-section" class="favorites__card-container">
+      @for (post of favoritePosts; track post.id) {
+        <app-card [post]="post" />
+      }
+    </section>
+  } @else {
+    <section class="empty-list__container">
+      <p class="empty-list__title">No hay noticias favoritas</p>
+      <a class="empty-list__link" routerLink="/list">Ver todas las noticias</a>
+    </section>
+  }
 </main>

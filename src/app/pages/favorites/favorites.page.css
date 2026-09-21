@@ -20,7 +20,7 @@
 
 .favorites__card-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
   gap: 2rem;
   align-items: stretch;
   width: 100%;
@@ -41,6 +41,17 @@
   font-weight: 600;
   margin: 0.5rem;
   text-align: center;
+}
+
+.empty-list__link {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.empty-list__link:hover {
+  color: var(--color-primary-dark);
 }
 
 @media (max-width: 768px) {

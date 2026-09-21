@@ -1,4 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core'
+import { RouterLink } from '@angular/router'
 import { CardComponent } from '../../components'
 import { filterNotDeleted, getFavoritesData, sortByDate } from '../../domain'
 import { CardPost } from '../../models'
@@ -6,7 +7,7 @@ import { FavoritesService, PostsService } from '../../services'
 
 @Component({
   selector: 'app-favorites-page',
-  imports: [CardComponent],
+  imports: [CardComponent, RouterLink],
   templateUrl: './favorites.page.html',
   styleUrls: ['./favorites.page.css'],
 })
