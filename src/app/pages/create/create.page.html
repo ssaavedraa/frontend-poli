@@ -1,0 +1,194 @@
+<main id="news-hub-main" class="create__container">
+  <h1 class="create__title">Crear nueva noticia</h1>
+  <p class="create__description">
+    Completa los campos para redactar y publicar un nuevo artículo en NewsHub.
+  </p>
+
+  <form [formGroup]="createPostForm" (ngSubmit)="onSubmit()" class="create__form" id="create-form">
+    <div class="create__field">
+      <label for="title" class="create__label">Título</label>
+      <span class="create__hint">Obligatorio</span>
+      <input
+        type="text"
+        id="title"
+        formControlName="title"
+        class="create__input"
+        placeholder="Ej. Avances en computación cuántica redefinen el análisis de datos"
+        [class.create__input--invalid]="getControlErrorMessage(createPostForm.controls.title)"
+        [attr.aria-invalid]="!!getControlErrorMessage(createPostForm.controls.title)"
+        [attr.aria-describedby]="
+          getControlErrorMessage(createPostForm.controls.title) ? 'title-error' : null
+        "
+      />
+      @if (getControlErrorMessage(createPostForm.controls.title); as error) {
+        <p id="title-error" class="create__error" role="alert">{{ error }}</p>
+      }
+    </div>
+
+    <div class="create__field">
+      <label for="subtitle" class="create__label">Subtítulo breve</label>
+      <input
+        type="text"
+        id="subtitle"
+        formControlName="subtitle"
+        class="create__input"
+        placeholder="Breve frase explicativa o contexto principal..."
+        [class.create__input--invalid]="getControlErrorMessage(createPostForm.controls.subtitle)"
+        [attr.aria-invalid]="!!getControlErrorMessage(createPostForm.controls.subtitle)"
+        [attr.aria-describedby]="
+          getControlErrorMessage(createPostForm.controls.subtitle) ? 'subtitle-error' : null
+        "
+      />
+      @if (getControlErrorMessage(createPostForm.controls.subtitle); as error) {
+        <p id="subtitle-error" class="create__error" role="alert">{{ error }}</p>
+      }
+    </div>
+
+    <div class="create__field">
+      <label for="summary" class="create__label">Descripción corta / resumen</label>
+      <textarea
+        id="summary"
+        formControlName="summary"
+        class="create__input create__input--textarea"
+        minlength="10"
+        maxlength="220"
+        rows="4"
+        placeholder="Resumen conciso para la vista de tarjeta..."
+        title="El resumen debe tener entre 10 y 220 caracteres"
+        [class.create__input--invalid]="getControlErrorMessage(createPostForm.controls.summary)"
+        [attr.aria-invalid]="!!getControlErrorMessage(createPostForm.controls.summary)"
+        [attr.aria-describedby]="
+          getControlErrorMessage(createPostForm.controls.summary) ? 'summary-error' : null
+        "
+      ></textarea>
+      @if (getControlErrorMessage(createPostForm.controls.summary); as error) {
+        <p id="summary-error" class="create__error" role="alert">{{ error }}</p>
+      }
+    </div>
+
+    <div class="create__media">
+      <div class="create__field">
+        <label for="imageSrc" class="create__label">URL de la imagen</label>
+        <input
+          type="url"
+          id="imageSrc"
+          formControlName="imageSrc"
+          class="create__input"
+          placeholder="https://ejemplo.com/fotografia.jpg"
+          [class.create__input--invalid]="getControlErrorMessage(createPostForm.controls.imageSrc)"
+          [attr.aria-invalid]="!!getControlErrorMessage(createPostForm.controls.imageSrc)"
+          [attr.aria-describedby]="
+            getControlErrorMessage(createPostForm.controls.imageSrc) ? 'imageSrc-error' : null
+          "
+        />
+        @if (getControlErrorMessage(createPostForm.controls.imageSrc); as error) {
+          <p id="imageSrc-error" class="create__error" role="alert">{{ error }}</p>
+        }
+      </div>
+      <div class="create__field">
+        <label for="imageAlt" class="create__label">Texto alternativo</label>
+        <input
+          type="text"
+          id="imageAlt"
+          formControlName="imageAlt"
+          class="create__input"
+          placeholder="Descripción concisa para accesibilidad visual..."
+          [class.create__input--invalid]="getControlErrorMessage(createPostForm.controls.imageAlt)"
+          [attr.aria-invalid]="!!getControlErrorMessage(createPostForm.controls.imageAlt)"
+          [attr.aria-describedby]="
+            getControlErrorMessage(createPostForm.controls.imageAlt) ? 'imageAlt-error' : null
+          "
+        />
+        @if (getControlErrorMessage(createPostForm.controls.imageAlt); as error) {
+          <p id="imageAlt-error" class="create__error" role="alert">{{ error }}</p>
+        }
+      </div>
+    </div>
+
+    <section class="create__body" aria-labelledby="body-label">
+      <div class="create__body-header">
+        <div>
+          <h2 id="body-label" class="create__label">Cuerpo del artículo</h2>
+          <p class="create__body-copy">
+            Estructura tu noticia párrafo a párrafo para facilitar su lectura.
+          </p>
+        </div>
+        <p class="create__hint" id="paragraphs-count">
+          {{ createPostForm.controls.content.length }}
+          {{
+            createPostForm.controls.content.length === 1
+              ? 'párrafo redactado'
+              : 'párrafos redactados'
+          }}
+        </p>
+      </div>
+
+      <div class="create__paragraphs" formArrayName="content" id="paragraphs-list">
+        @for (paragraph of createPostForm.controls.content.controls; track $index) {
+          <article class="create__paragraph">
+            <div class="create__paragraph-header">
+              <label [for]="'paragraph-' + $index" class="create__paragraph-label"
+                >Párrafo {{ $index + 1 }}</label
+              >
+              @if ($index === 0) {
+                <span class="create__hint">Apertura</span>
+              } @else {
+                <app-button
+                  type="button"
+                  class="create__paragraph-remove"
+                  (click)="removeParagraph($index)"
+                  >Eliminar</app-button
+                >
+              }
+            </div>
+            <textarea
+              [id]="'paragraph-' + $index"
+              [formControlName]="$index"
+              class="create__paragraph-input"
+              rows="3"
+              [placeholder]="
+                $index === 0
+                  ? 'Escribe el primer párrafo introductorio de la noticia...'
+                  : 'Desarrolla el contexto, citas relevantes o datos complementarios...'
+              "
+              [class.create__paragraph-input--invalid]="getControlErrorMessage(paragraph)"
+              [attr.aria-invalid]="!!getControlErrorMessage(paragraph)"
+              [attr.aria-describedby]="
+                getControlErrorMessage(paragraph) ? 'paragraph-' + $index + '-error' : null
+              "
+            ></textarea>
+            @if (getControlErrorMessage(paragraph); as error) {
+              <p [id]="'paragraph-' + $index + '-error'" class="create__error" role="alert">
+                {{ error }}
+              </p>
+            }
+          </article>
+        }
+      </div>
+
+      <div class="create__add-paragraph">
+        <app-button type="button" id="add-paragraph" (click)="addParagraph()"
+          >Agregar párrafo</app-button
+        >
+      </div>
+    </section>
+    <div class="create__actions">
+      <div class="create__actions-end">
+        <app-button
+          type="button"
+          variant="danger"
+          class="create__discard"
+          (click)="createPostForm.reset()"
+          >Descartar</app-button
+        >
+        <app-button
+          variant="accent"
+          type="submit"
+          class="create__submit"
+          [disabled]="createPostForm.invalid"
+          >Publicar noticia</app-button
+        >
+      </div>
+    </div>
+  </form>
+</main>
